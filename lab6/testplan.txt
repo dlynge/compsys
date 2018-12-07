@@ -1,0 +1,7 @@
+Test Plan
+Lab 6: Dijkstra's Algorithm
+David Lynge
+dlynge
+ECE 2230, Fall 2018
+
+The test script can be found as testscript.txt and will output to the file testoutput.txt. The plan for this script involves testing every comination of each graph type and graph operation (9 total) under normal conditions. Then, a few cases that test for extreme conditions will be ran which will be expected to fail. Finally, the tests for the performance evaluation will be executed and the details of that can be found in performance.txt. Overall, the output of the test performed as expected and the program ran smoothly within a reasonable time.

@@ -1,0 +1,234 @@
+Welcome to lab2. Possible commands:
+CREATE x; ADDSU; DELSU x
+LISTCH x; CLEARCH x; CHANGECH old new; ASSIGNSU x
+PRINTASSIGNED; PRINTWAITING
+STATS; QUIT
+# Prof. Harlan Russell
+# ECE 2230, MP2, Fall 2018
+# An example of an input test file.  Tests verious cases such as working
+# with a full and empty list.
+# 
+# The file assumes that the sequential array holds a maximum of 10 elements.
+# 
+# TEST 1: Fill list with 10 items and print.  All adds should be successful.  
+# 
+Assignment list size limit: 10
+New assignment list
+New waiting queue
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 222
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 333
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 111
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 999
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 777
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 666
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 888
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 555
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 444
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2
+Moved waiting SU 222 to channel: 1
+Moved waiting SU 333 to channel: 1
+Moved waiting SU 111 to channel: 1
+Moved waiting SU 999 to channel: 9
+Moved waiting SU 777 to channel: 1
+Moved waiting SU 666 to channel: 1
+Moved waiting SU 888 to channel: 1
+Moved waiting SU 555 to channel: 1
+Moved waiting SU 444 to channel: 1
+Moved waiting SU 2 to channel: 1
+No secondary users are waiting
+# 
+# ======== Print for TEST 1 ==========
+Assignment list has 10 records.  Looking for SUs on ch 1
+ID: 2, C: 1, MIP: 300, AID: 300, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 9
+ID: 111, C: 1, MIP: 111, AID: 111, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+ID: 222, C: 1, MIP: 222, AID: 222, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 0
+ID: 333, C: 1, MIP: 332, AID: 332, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+ID: 444, C: 1, MIP: 445, AID: 445, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 8
+ID: 555, C: 1, MIP: 556, AID: 556, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 7
+ID: 666, C: 1, MIP: 667, AID: 667, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+ID: 777, C: 1, MIP: 778, AID: 778, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+ID: 888, C: 1, MIP: 889, AID: 889, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 6
+# 
+# **** End of TEST 1 ****
+# 
+# TEST 2: Attempt to add, delete, and list with a full list.  Should fail for all.
+# 
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 500
+User(s) waiting but the assigned list is full 10
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 501
+User(s) waiting but the assigned list is full 10
+Did not remove: 1
+Did not remove: 1000
+Did not find any users on channel 2
+# ======== Print for TEST 2 ==========
+Assigned List has 10 records
+1: ID: 2, C: 1, MIP: 300, AID: 300, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 9
+2: ID: 111, C: 1, MIP: 111, AID: 111, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+3: ID: 222, C: 1, MIP: 222, AID: 222, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 0
+4: ID: 333, C: 1, MIP: 332, AID: 332, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+5: ID: 444, C: 1, MIP: 445, AID: 445, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 8
+6: ID: 555, C: 1, MIP: 556, AID: 556, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 7
+7: ID: 666, C: 1, MIP: 667, AID: 667, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+8: ID: 777, C: 1, MIP: 778, AID: 778, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+9: ID: 888, C: 1, MIP: 889, AID: 889, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 6
+10: ID: 999, C: 9, MIP: 998, AID: 998, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+
+Waiting Queue has 2 records
+1: ID: 500, C: 1, MIP: 501, AID: 501, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 10
+2: ID: 501, C: 1, MIP: 502, AID: 502, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 11
+
+# 
+# **** End of TEST 2 ****
+# 
+# TEST 3: Attempt to find item not in list
+# 
+Assignment list has 10 records.  Looking for SUs on ch 2
+# ======== Print for TEST 3 ==========
+Assigned List has 10 records
+1: ID: 2, C: 1, MIP: 300, AID: 300, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 9
+2: ID: 111, C: 1, MIP: 111, AID: 111, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+3: ID: 222, C: 1, MIP: 222, AID: 222, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 0
+4: ID: 333, C: 1, MIP: 332, AID: 332, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+5: ID: 444, C: 1, MIP: 445, AID: 445, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 8
+6: ID: 555, C: 1, MIP: 556, AID: 556, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 7
+7: ID: 666, C: 1, MIP: 667, AID: 667, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+8: ID: 777, C: 1, MIP: 778, AID: 778, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+9: ID: 888, C: 1, MIP: 889, AID: 889, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 6
+10: ID: 999, C: 9, MIP: 998, AID: 998, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+
+Waiting Queue has 2 records
+1: ID: 500, C: 1, MIP: 501, AID: 501, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 10
+2: ID: 501, C: 1, MIP: 502, AID: 502, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 11
+
+# 
+# 
+# **** End of TEST 3 ****
+# 
+# TEST 4: Delete last element in full list.  Then look for element should fail.
+# Add last element back, and verify look now succeeds.
+# 
+Removed: 999 from assigned list
+ID: 999, C: 9, MIP: 998, AID: 998, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+Assignment list has 9 records.  Looking for SUs on ch 9
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 999
+Moved waiting SU 500 to channel: 9
+Assignment list has 10 records.  Looking for SUs on ch 9
+ID: 500, C: 9, MIP: 501, AID: 501, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 10
+# 
+# ======== Print for TEST 4 ==========
+Assigned List has 10 records
+1: ID: 2, C: 1, MIP: 300, AID: 300, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 9
+2: ID: 111, C: 1, MIP: 111, AID: 111, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+3: ID: 222, C: 1, MIP: 222, AID: 222, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 0
+4: ID: 333, C: 1, MIP: 332, AID: 332, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+5: ID: 444, C: 1, MIP: 445, AID: 445, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 8
+6: ID: 500, C: 9, MIP: 501, AID: 501, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 10
+7: ID: 555, C: 1, MIP: 556, AID: 556, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 7
+8: ID: 666, C: 1, MIP: 667, AID: 667, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+9: ID: 777, C: 1, MIP: 778, AID: 778, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+10: ID: 888, C: 1, MIP: 889, AID: 889, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 6
+
+Waiting Queue has 2 records
+1: ID: 501, C: 1, MIP: 502, AID: 502, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 11
+2: ID: 999, C: 9, MIP: 997, AID: 997, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 12
+
+# 
+# **** End of TEST 4 ****
+# 
+# TEST 5: Delete items in middle of list, then add them back
+# 
+Removed: 333 from assigned list
+ID: 333, C: 1, MIP: 332, AID: 332, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+Removed: 555 from assigned list
+ID: 555, C: 1, MIP: 556, AID: 556, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 7
+Removed: 444 from assigned list
+ID: 444, C: 1, MIP: 445, AID: 445, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 8
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 555
+Moved waiting SU 501 to channel: 2
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 333
+Moved waiting SU 999 to channel: 2
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 444
+Moved waiting SU 555 to channel: 2
+# 
+# ======== Find, List, Print for TEST 5 ==========
+Assignment list has 10 records.  Looking for SUs on ch 2
+ID: 501, C: 2, MIP: 502, AID: 502, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 11
+ID: 555, C: 2, MIP: 887, AID: 887, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 13
+ID: 999, C: 2, MIP: 997, AID: 997, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 12
+Assigned List has 10 records
+1: ID: 2, C: 1, MIP: 300, AID: 300, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 9
+2: ID: 111, C: 1, MIP: 111, AID: 111, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+3: ID: 222, C: 1, MIP: 222, AID: 222, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 0
+4: ID: 500, C: 9, MIP: 501, AID: 501, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 10
+5: ID: 501, C: 2, MIP: 502, AID: 502, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 11
+6: ID: 555, C: 2, MIP: 887, AID: 887, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 13
+7: ID: 666, C: 1, MIP: 667, AID: 667, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+8: ID: 777, C: 1, MIP: 778, AID: 778, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+9: ID: 888, C: 1, MIP: 889, AID: 889, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 6
+10: ID: 999, C: 2, MIP: 997, AID: 997, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 12
+
+Waiting Queue has 2 records
+1: ID: 333, C: 2, MIP: 668, AID: 668, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 14
+2: ID: 444, C: 2, MIP: 886, AID: 886, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 15
+
+# 
+# **** End of TEST 5 ****
+# 
+# TEST 6: Delete first item in list, add item to middle, last should still be
+# there.  All succeed.
+# 
+Removed: 2 from assigned list
+ID: 2, C: 1, MIP: 300, AID: 300, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 9
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 503
+Moved waiting SU 333 to channel: 3
+Assignment list has 10 records.  Looking for SUs on ch 3
+ID: 333, C: 3, MIP: 668, AID: 668, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 14
+# 
+# **** End of TEST 6 ***
+# 
+# TEST 7: Delete penultimate and look for last.  Should succeed.  Delete last item,
+# then look for last.  Should not find last element
+# 
+Removed: 888 from assigned list
+ID: 888, C: 1, MIP: 889, AID: 889, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 6
+Assignment list has 9 records.  Looking for SUs on ch 9
+ID: 500, C: 9, MIP: 501, AID: 501, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 10
+Removed: 999 from assigned list
+ID: 999, C: 2, MIP: 997, AID: 997, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 12
+Assignment list has 8 records.  Looking for SUs on ch 9
+ID: 500, C: 9, MIP: 501, AID: 501, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 10
+Removed 4 from channel 1
+# 
+# **** End of TEST 7 ****
+Assigned List has 4 records
+1: ID: 333, C: 3, MIP: 668, AID: 668, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 14
+2: ID: 500, C: 9, MIP: 501, AID: 501, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 10
+3: ID: 501, C: 2, MIP: 502, AID: 502, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 11
+4: ID: 555, C: 2, MIP: 887, AID: 887, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 13
+
+Waiting Queue has 6 records
+1: ID: 444, C: 2, MIP: 886, AID: 886, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 15
+2: ID: 503, C: 1, MIP: 504, AID: 504, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 16
+3: ID: 111, C: 1, MIP: 111, AID: 111, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+4: ID: 222, C: 1, MIP: 222, AID: 222, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 0
+5: ID: 666, C: 1, MIP: 667, AID: 667, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+6: ID: 777, C: 1, MIP: 778, AID: 778, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+
+Goodbye

@@ -1,0 +1,123 @@
+Prof. Harlan Russell
+ECE 2230, MP2, Fall 2018
+test8 full list reverse order for size 5
+
+CREATE 5
+ADDSU 
+11
+111
+211
+F
+NSA
+2.4
+1
+1.3
+1
+ADDSU 
+9
+109
+209
+F
+NSA
+2.4
+1
+1.3
+2
+ADDSU 
+7
+107
+207
+T
+NSA
+2.4
+1
+1.3
+3
+ADDSU 
+5
+105
+205
+F
+NSA
+2.4
+1
+1.3
+4
+ADDSU 
+3
+103
+203
+T
+NSA
+2.4
+1
+1.3
+5
+ADDSU 
+1
+101
+201
+T
+NSA
+2.4
+8
+1.3
+6
+ASSIGNSU 8
+ASSIGNSU 8
+ASSIGNSU 8
+ASSIGNSU 8
+ASSIGNSU 8
+ASSIGNSU 8
+PRINTASSIGNED
+STATS
+CHANGECH 8 7
+LISTCH 7
+LISTCH 8
+CLEARCH 8
+CLEARCH 7
+PRINTASSIGNED
+PRINTWAITING
+
+Output must be:
+/    Inserted new waiting SU: 11
+/    Inserted new waiting SU: 9
+/    Inserted new waiting SU: 7
+/    Inserted new waiting SU: 5
+/    Inserted new waiting SU: 3
+/    Inserted new waiting SU: 1
+/    Moved waiting SU 11 to channel: 8
+/    Moved waiting SU 9 to channel: 8
+/    Moved waiting SU 7 to channel: 8
+/    Moved waiting SU 5 to channel: 8
+/    Moved waiting SU 3 to channel: 8
+/    User(s) waiting but the assigned list is full 5
+/    Assigned List has 5 records
+/    1: ID: 3, C: 8, MIP: 103, AID: 203, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+/    2: ID: 5, C: 8, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+/    3: ID: 7, C: 8, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+/    4: ID: 9, C: 8, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+/    5: ID: 11, C: 8, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+/    List records:  5, Max list size: 5  Queue records: 1
+/    Moved 5 users from channel 8 to 7
+/    Assignment list has 5 records.  Looking for SUs on ch 7
+/    ID: 3, C: 7, MIP: 103, AID: 203, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+/    ID: 5, C: 7, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+/    ID: 7, C: 7, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+/    ID: 9, C: 7, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+/    ID: 11, C: 7, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+/    Assignment list has 5 records.  Looking for SUs on ch 8
+/    Did not find any users on channel 8
+/    Removed 5 from channel 7
+/    Assigned List empty
+/    Waiting Queue has 6 records
+/    1: ID: 1, C: 8, MIP: 101, AID: 201, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 6
+/    2: ID: 3, C: 7, MIP: 103, AID: 203, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+/    3: ID: 5, C: 7, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+/    4: ID: 7, C: 7, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+/    5: ID: 9, C: 7, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+/    6: ID: 11, C: 7, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+/    Goodbye
+QUIT
+
+

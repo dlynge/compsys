@@ -1,0 +1,31 @@
+Seed: 1765640879
+First-fit search policy using coalescing
+
+----- Begin unit driver 2 -----
+There are 4096 bytes per page, and the size of chunk_t is 16 bytes
+Allocated 3 memory blocks taking up an entire page
+p=0x6060d0, size=0, end=0x6060d0, next=0x6060d0 <-- dummy
+Free list above should be empty
+
+Free'd memory blocks 1 and 3
+p=0x65b000, size=128, end=0x65b800, next=0x65bc00 
+p=0x65bc00, size=64, end=0x65c000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x65b000 <-- dummy
+Free list above should show a gap
+
+Free'd last block 2
+p=0x6060d0, size=0, end=0x6060d0, next=0x65b000 <-- dummy
+p=0x65b000, size=256, end=0x65c000, next=0x6060d0 
+Free list above should be a page in size
+
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 4096 B
+Maximum size (bytes) in free list -- 4096 B
+Average size (bytes) in free list -- 4096 B
+Total memory (bytes) in free list -- 4096 B
+Number of calls to sbrk -- 1
+Number of pages requested -- 1
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 2 -----

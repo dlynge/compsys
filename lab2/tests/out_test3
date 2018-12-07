@@ -1,0 +1,37 @@
+Welcome to lab2. Possible commands:
+CREATE x; ADDSU; DELSU x
+LISTCH x; CLEARCH x; CHANGECH old new; ASSIGNSU x
+PRINTASSIGNED; PRINTWAITING
+STATS; QUIT
+# Prof. Harlan Russell
+# ECE 2230, MP2, Fall 2018
+# test3 single replace no leak
+# 
+Assignment list size limit: 1
+New assignment list
+New waiting queue
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 111
+Waiting Queue has 1 records
+1: ID: 111, C: 1, MIP: 100, AID: 200, Auth: F, Pri: strong, B: 2.4, R: 1.3 Time: 1
+
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Updated waiting SU: 111
+List records:  0, Max list size: 1  Queue records: 1
+Assigned List empty
+
+Waiting Queue has 1 records
+1: ID: 111, C: 1, MIP: 101, AID: 201, Auth: T, Pri: none, B: 2.4, R: 2.4 Time: 2
+
+# 
+# Output must be:
+# /    Inserted new waiting SU: 111
+# /    Waiting Queue has 1 records
+# /    1: ID: 111, C: 1, MIP: 100, AID: 200, Auth: F, Pri: strong, B: 2.4, R: 1.3 Time: 1
+# /    Updated waiting SU: 111
+# /    List records:  0, Max list size: 1  Queue records: 1
+# /    Assigned List empty
+# /    Waiting Queue has 1 records
+# /    1: ID: 111, C: 1, MIP: 101, AID: 201, Auth: T, Pri: none, B: 2.4, R: 2.4 Time: 2
+# /    Goodbye
+Goodbye

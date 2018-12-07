@@ -1,0 +1,89 @@
+Welcome to lab2. Possible commands:
+CREATE x; ADDSU; DELSU x
+LISTCH x; CLEARCH x; CHANGECH old new; ASSIGNSU x
+PRINTASSIGNED; PRINTWAITING
+STATS; QUIT
+# Prof. Harlan Russell
+# ECE 2230, MP2, Fall 2018
+# test12 full list remove
+# 
+Assignment list size limit: 5
+New assignment list
+New waiting queue
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 7
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 5
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 11
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 9
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 3
+Moved waiting SU 7 to channel: 5
+Moved waiting SU 5 to channel: 4
+Moved waiting SU 11 to channel: 3
+Moved waiting SU 9 to channel: 2
+Moved waiting SU 3 to channel: 1
+Removed: 3 from assigned list
+ID: 3, C: 1, MIP: 103, AID: 203, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+Assignment list has 4 records.  Looking for SUs on ch 1
+Removed: 11 from assigned list
+ID: 11, C: 3, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+Assignment list has 3 records.  Looking for SUs on ch 3
+List records:  3, Max list size: 5  Queue records: 0
+Assigned List has 3 records
+1: ID: 5, C: 4, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+2: ID: 7, C: 5, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+3: ID: 9, C: 2, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+
+Waiting Queue empty
+
+Removed: 9 from assigned list
+ID: 9, C: 2, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+Removed: 7 from assigned list
+ID: 7, C: 5, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+Removed: 5 from assigned list
+ID: 5, C: 4, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+Did not remove: 11
+List records:  0, Max list size: 5  Queue records: 0
+Assigned List empty
+
+Waiting Queue empty
+
+# 
+# Output must be:
+# /    Inserted new waiting SU: 7
+# /    Inserted new waiting SU: 5
+# /    Inserted new waiting SU: 11
+# /    Inserted new waiting SU: 9
+# /    Inserted new waiting SU: 3
+# /    Moved waiting SU 7 to channel: 5
+# /    Moved waiting SU 5 to channel: 4
+# /    Moved waiting SU 11 to channel: 3
+# /    Moved waiting SU 9 to channel: 2
+# /    Moved waiting SU 3 to channel: 1
+# /    Removed: 3 from assigned list
+# /    ID: 3, C: 1, MIP: 103, AID: 203, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+# /    Assignment list has 4 records.  Looking for SUs on ch 1
+# /    Removed: 11 from assigned list
+# /    ID: 11, C: 3, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+# /    Assignment list has 3 records.  Looking for SUs on ch 3
+# /    List records:  3, Max list size: 5  Queue records: 0
+# /    Assigned List has 3 records
+# /    1: ID: 5, C: 4, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+# /    2: ID: 7, C: 5, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+# /    3: ID: 9, C: 2, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+# /    Waiting Queue empty
+# /    Removed: 9 from assigned list
+# /    ID: 9, C: 2, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+# /    Removed: 7 from assigned list
+# /    ID: 7, C: 5, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+# /    Removed: 5 from assigned list
+# /    ID: 5, C: 4, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+# /    Did not remove: 11
+# /    List records:  0, Max list size: 5  Queue records: 0
+# /    Assigned List empty
+# /    Waiting Queue empty
+# /    Goodbye
+Goodbye

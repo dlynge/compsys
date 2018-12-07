@@ -1,0 +1,78 @@
+Prof. Harlan Russell
+ECE 2230, MP2, Fall 2018
+test15 single replace in list when in middle and list not full no leak
+
+CREATE 5
+ADDSU 
+111
+100
+200
+F
+NSA
+2.4
+1
+1.3
+1
+ASSIGNSU 1
+ADDSU 
+100
+100
+200
+F
+NSA
+2.4
+1
+1.3
+2
+ASSIGNSU 1
+ADDSU 
+200
+100
+200
+F
+NSA
+2.4
+1
+1.3
+3
+ASSIGNSU 1
+ADDSU 
+111
+101
+201
+T
+NSA
+2.4
+1
+1.3
+4
+STATS
+PRINTASSIGNED
+PRINTWAITING
+CLEARCH 1
+PRINTASSIGNED
+PRINTWAITING
+
+Output must be:
+/    Inserted new waiting SU: 111
+/    Moved waiting SU 111 to channel: 1
+/    Inserted new waiting SU: 100
+/    Moved waiting SU 100 to channel: 1
+/    Inserted new waiting SU: 200
+/    Moved waiting SU 200 to channel: 1
+/    Updated assigned SU: 111
+/    List records:  3, Max list size: 5  Queue records: 0
+/    Assigned List has 3 records
+/    1: ID: 100, C: 1, MIP: 100, AID: 200, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+/    2: ID: 111, C: 1, MIP: 101, AID: 201, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+/    3: ID: 200, C: 1, MIP: 100, AID: 200, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+/    Waiting Queue empty
+/    Removed 3 from channel 1
+/    Assigned List empty
+/    Waiting Queue has 3 records
+/    1: ID: 100, C: 1, MIP: 100, AID: 200, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+/    2: ID: 111, C: 1, MIP: 101, AID: 201, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+/    3: ID: 200, C: 1, MIP: 100, AID: 200, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+/    Goodbye
+QUIT
+

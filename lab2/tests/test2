@@ -1,0 +1,30 @@
+Prof. Harlan Russell
+ECE 2230, MP2, Fall 2018
+test2 single insert no leak
+
+CREATE 1
+ADDSU 
+111
+100
+200
+T
+NSA
+2.4
+2
+54.2
+1
+STATS
+PRINTASSIGNED
+PRINTWAITING
+
+/    Output must be:
+/    Inserted new waiting SU: 111
+/    List records:  0, Max list size: 1  Queue records: 1
+/    Assigned List empty
+/    
+/    Waiting Queue has 1 records
+/    1: ID: 111, C: 2, MIP: 100, AID: 200, Auth: T, Pri: NSA, B: 2.4, R: 54.2 Time: 1
+/    
+/    Goodbye
+QUIT
+

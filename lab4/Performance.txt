@@ -1,0 +1,283 @@
+Performance.txt
+David Lynge
+dlynge
+ECE 2230 Fall 2018
+MP4
+
+
+Advantages/Disadvantages
+ - I used a one-way linked list because it is simpiler to work with most of the time. The advantage of this is that less code needs to be written if you want to remove/add an item. The disadvantage is that you can only traverse the list in one direction. This means that if you don't have the adress of the previous item, you need to loop through the list.
+
+ - The advantage of using best fit over first fit is that it leaves as little leftover memory as possible. The disadvantage is that best fit has a higher overhead cost to find the right memory block to free. However, the benefits of having as little fragmentation as possible outweigh this overhead. Also, having a roving pointer reduces fragmentaion, since the allocations are spread across the free list. We can see this in the equilibrium output, when the best fit runs faster than the first fit trials.
+
+ - Coalescing has a much greater impact to performance than best fit. The advantage to coalescing is that the free list does not compound fragmentation over time. This makes the program runtime faster, since it doesn't have to call morecore as often. The disadvantage is that the free list needs to be maintained in a sorted order and it makes the coding more complicated.
+
+Performance Evaluation
+ - Looking at the runtime for first-fit and coalescing, it took 273.689ms. This is 2944ms faster than non-coalescing, which took 3217.97ms. Also, The total memory used in the heap was around 9 MB and 0.6 MB for coalescing and non-coalescing respectively. This has a major impact on memory usage, since coalescing essentially removes fragmentation whenever a memory block is freed. As a result, when everything is freed, there's only one chunk in the coalesced free list, but 45133 chunks/fragments in the non-coalesced free list. This also means the average chunk size is larger for coalescing. The average chunk sizes are 2454 B and 199 B for coalescing and non-coalescing respectively. This is a good thing, since we want the smaller chunks to group together to form bigger chunks.
+
+ - When the size of each allocation request is the same, it is suprising to see that coalescing hurts the runtime performance. Without coalescing, it takes 105.996ms to run the driver and with coalescing it takes 162.071ms. This may be due to the fact that once the fragments are small enough, they will never get filled since the allocation sizes are all the same. Also, once a block has been allocated and then freed, coalescing doesn't matter since the next request will be that exact size of the last block.
+
+ - Looking at the system malloc and free, it takes about the same amount of runtime. For the system malloc and free, it takes 236.526ms to run the driver compared to 268.953ms for my memory manager. This is slightly longer, but overall it seems that my program's performance is up to par.
+
+
+
+
+
+
+OUTPUT
+
+Seed: 1765640879
+First-fit search policy without coalescing
+
+Equilibrium test driver using Mem_alloc and Mem_free from mem.c
+  Trials in equilibrium: 100000
+  Warmup allocations: 1000
+  Average array size: 128
+  Range for average array size: 127
+After warmup
+Total items in free list -- 42
+Minimum size (bytes) in free list -- 32 B
+Maximum size (bytes) in free list -- 1440 B
+Average size (bytes) in free list -- 95 B
+Total memory (bytes) in free list -- 4016 B
+Number of calls to sbrk -- 130
+Number of pages requested -- 130
+After exercise, time=3217.97
+Total items in free list -- 44745
+Minimum size (bytes) in free list -- 32 B
+Maximum size (bytes) in free list -- 1360 B
+Average size (bytes) in free list -- 196 B
+Total memory (bytes) in free list -- 8797056 B
+Number of calls to sbrk -- 2199
+Number of pages requested -- 2199
+After cleanup
+Total items in free list -- 45133
+Minimum size (bytes) in free list -- 32 B
+Maximum size (bytes) in free list -- 1360 B
+Average size (bytes) in free list -- 199 B
+Total memory (bytes) in free list -- 9007104 B
+Number of calls to sbrk -- 2199
+Number of pages requested -- 2199
+
+all memory is in the heap -- no leaks are possible
+----- End of equilibrium test -----
+
+
+
+Seed: 1765640879
+Best-fit search policy without coalescing
+
+Equilibrium test driver using Mem_alloc and Mem_free from mem.c
+  Trials in equilibrium: 100000
+  Warmup allocations: 1000
+  Average array size: 128
+  Range for average array size: 127
+After warmup
+Total items in free list -- 29
+Minimum size (bytes) in free list -- 32 B
+Maximum size (bytes) in free list -- 2480 B
+Average size (bytes) in free list -- 139 B
+Total memory (bytes) in free list -- 4032 B
+Number of calls to sbrk -- 130
+Number of pages requested -- 130
+After exercise, time=610.716
+Total items in free list -- 1509
+Minimum size (bytes) in free list -- 32 B
+Maximum size (bytes) in free list -- 1040 B
+Average size (bytes) in free list -- 322 B
+Total memory (bytes) in free list -- 486848 B
+Number of calls to sbrk -- 170
+Number of pages requested -- 170
+After cleanup
+Total items in free list -- 1897
+Minimum size (bytes) in free list -- 32 B
+Maximum size (bytes) in free list -- 1040 B
+Average size (bytes) in free list -- 367 B
+Total memory (bytes) in free list -- 696320 B
+Number of calls to sbrk -- 170
+Number of pages requested -- 170
+
+all memory is in the heap -- no leaks are possible
+----- End of equilibrium test -----
+
+
+
+
+Seed: 1765640879
+Best-fit search policy using coalescing
+
+Equilibrium test driver using Mem_alloc and Mem_free from mem.c
+  Trials in equilibrium: 100000
+  Warmup allocations: 1000
+  Average array size: 128
+  Range for average array size: 127
+After warmup
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 384 B
+Maximum size (bytes) in free list -- 384 B
+Average size (bytes) in free list -- 384 B
+Total memory (bytes) in free list -- 384 B
+Number of calls to sbrk -- 129
+Number of pages requested -- 129
+After exercise, time=268.953
+Total items in free list -- 87
+Minimum size (bytes) in free list -- 32 B
+Maximum size (bytes) in free list -- 210832 B
+Average size (bytes) in free list -- 4737 B
+Total memory (bytes) in free list -- 412128 B
+Number of calls to sbrk -- 152
+Number of pages requested -- 152
+After cleanup
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 622592 B
+Maximum size (bytes) in free list -- 622592 B
+Average size (bytes) in free list -- 622592 B
+Total memory (bytes) in free list -- 622592 B
+Number of calls to sbrk -- 152
+Number of pages requested -- 152
+
+all memory is in the heap -- no leaks are possible
+----- End of equilibrium test -----
+
+
+
+
+Seed: 1765640879
+First-fit search policy using coalescing
+
+Equilibrium test driver using Mem_alloc and Mem_free from mem.c
+  Trials in equilibrium: 100000
+  Warmup allocations: 1000
+  Average array size: 128
+  Range for average array size: 127
+After warmup
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 384 B
+Maximum size (bytes) in free list -- 384 B
+Average size (bytes) in free list -- 384 B
+Total memory (bytes) in free list -- 384 B
+Number of calls to sbrk -- 129
+Number of pages requested -- 129
+After exercise, time=273.689
+Total items in free list -- 195
+Minimum size (bytes) in free list -- 32 B
+Maximum size (bytes) in free list -- 64352 B
+Average size (bytes) in free list -- 2454 B
+Total memory (bytes) in free list -- 478640 B
+Number of calls to sbrk -- 168
+Number of pages requested -- 168
+After cleanup
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 688128 B
+Maximum size (bytes) in free list -- 688128 B
+Average size (bytes) in free list -- 688128 B
+Total memory (bytes) in free list -- 688128 B
+Number of calls to sbrk -- 168
+Number of pages requested -- 168
+
+all memory is in the heap -- no leaks are possible
+----- End of equilibrium test -----
+
+
+
+
+SAME SIZED ALLOCATION (-r 0)
+
+
+
+Seed: 1765640879
+First-fit search policy without coalescing
+
+Equilibrium test driver using Mem_alloc and Mem_free from mem.c
+  Trials in equilibrium: 100000
+  Warmup allocations: 1000
+  Average array size: 128
+  Range for average array size: 0
+After warmup
+Total items in free list -- 143
+Minimum size (bytes) in free list -- 400 B
+Maximum size (bytes) in free list -- 928 B
+Average size (bytes) in free list -- 403 B
+Total memory (bytes) in free list -- 57728 B
+Number of calls to sbrk -- 143
+Number of pages requested -- 143
+After exercise, time=105.996
+Total items in free list -- 892
+Minimum size (bytes) in free list -- 400 B
+Maximum size (bytes) in free list -- 528 B
+Average size (bytes) in free list -- 505 B
+Total memory (bytes) in free list -- 450496 B
+Number of calls to sbrk -- 160
+Number of pages requested -- 160
+After cleanup
+Total items in free list -- 1280
+Minimum size (bytes) in free list -- 400 B
+Maximum size (bytes) in free list -- 528 B
+Average size (bytes) in free list -- 512 B
+Total memory (bytes) in free list -- 655360 B
+Number of calls to sbrk -- 160
+Number of pages requested -- 160
+
+all memory is in the heap -- no leaks are possible
+----- End of equilibrium test -----
+
+
+
+Seed: 1765640879
+First-fit search policy using coalescing
+
+Equilibrium test driver using Mem_alloc and Mem_free from mem.c
+  Trials in equilibrium: 100000
+  Warmup allocations: 1000
+  Average array size: 128
+  Range for average array size: 0
+After warmup
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 3968 B
+Maximum size (bytes) in free list -- 3968 B
+Average size (bytes) in free list -- 3968 B
+Total memory (bytes) in free list -- 3968 B
+Number of calls to sbrk -- 130
+Number of pages requested -- 130
+After exercise, time=162.071
+Total items in free list -- 132
+Minimum size (bytes) in free list -- 32 B
+Maximum size (bytes) in free list -- 62896 B
+Average size (bytes) in free list -- 2915 B
+Total memory (bytes) in free list -- 384896 B
+Number of calls to sbrk -- 144
+Number of pages requested -- 144
+After cleanup
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 589824 B
+Maximum size (bytes) in free list -- 589824 B
+Average size (bytes) in free list -- 589824 B
+Total memory (bytes) in free list -- 589824 B
+Number of calls to sbrk -- 144
+Number of pages requested -- 144
+
+all memory is in the heap -- no leaks are possible
+----- End of equilibrium test -----
+
+
+
+STANDARD COMPARISON (-d)
+
+
+
+Seed: 1765640879
+First-fit search policy without coalescing
+
+Equilibrium test driver using system malloc and free
+  Trials in equilibrium: 100000
+  Warmup allocations: 1000
+  Average array size: 128
+  Range for average array size: 127
+After warmup
+arena=675840B, chunks=1, alloc=552480, free=123360
+After exercise, time=236.526
+arena=675840B, chunks=113, alloc=219920, free=455920
+After cleanup
+arena=675840B, chunks=250, alloc=0, free=675840
+----- End of equilibrium test -----
+

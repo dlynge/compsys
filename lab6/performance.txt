@@ -1,0 +1,25 @@
+Performance Evaluation
+Lab 6: Dijkstra's Algorithm
+David Lynge
+dlynge
+ECE 2230, Fall 2018
+
+The tests referenced below can be found in testoutput.txt
+
+1.a : The ratio of runtimes is 2547.93/625.212 = 4.075. This verifies that the performance is O(n^2) since increasing the number of nodes by 2 increases the time by (n^2) = (2^2) = 4.
+
+1.b : The ratio of runtimes is 2073.37/581.927 = 3.563. This is close enough to 4 to say that our algorithm time takes 4 times as long if you double the number of nodes. This shows that it is O(n^2) for the same reason as described above.
+
+2 : The ratio of runtimes is 1971.67/252.366 = 7.813 which is close to 8. This shows that when you double the node size, the algorithm takes 8 times as long, which can be represented as O(n^3).
+
+3 : The tests showed that for -a 7, 8 out of 10 graphs were disconnected while for -a 20, 10 out of 10 graphs were connected. This shows that graphs are ussually disconnected if the approximate number of adjacent vertices are 7. Also, it's rare that if this number is 20 that the graph is disconnected. Note that in the tests, seeds 0-9 were used with the -a 7 option and seeds 10-19 were used with the -a 20 option.
+
+4.a : The test shows that there are 14 paths, confirming that the number of paths is equal to N-1 for graph type 2.
+
+4.b : The results of the tests are shown below. The data seems to be increasing porportional to the square of the approximate number of adjacent verticies. For instance, the different from -a 10 to -a 20 was only 1 more path, but the different between -a 50 and -a 100 was 40 paths.
+
+-a 10  : 6  paths
+-a 20  : 7  paths
+-a 50  : 18 paths
+-a 100 : 58 paths
+

@@ -1,0 +1,138 @@
+Prof. Harlan Russell
+ECE 2230, MP2, Fall 2018
+testintput.txt
+
+A test script to show a few simple tests for the SAS commands.
+This is an example of a start to a test plan.  These tests are very incomplete.
+
+Assumptions: these tests are designed with a list size of 3.  
+
+TEST 1:  Add three entries to list.  
+
+CREATE 3
+ADDSU 
+111
+100
+200
+T
+standard
+2.4
+2
+54.2
+1
+ASSIGNSU 2
+ADDSU 
+551 
+500
+200
+F
+strong
+2.4
+1
+1.3
+2
+ADDSU 
+100 
+111
+200
+T
+standard
+5.0
+2
+11.1
+3
+ASSIGNSU 1
+
+To determine if test 1 passes look for three "Inserted new waiting SU" messages
+
+TEST 2: Print the list and verify three entries are sorted 
+
+PRINTASSIGNED
+PRINTWAITING
+STATS
+
+To deterine if test 2 passes assigned list should have two users
+The waiting list should have 1 user
+Also, stats should show 3 records with an array size of 3
+
+TEST 3:  Update the 111 entry in the list
+
+ADDSU 
+111
+101
+201
+F
+NSA
+2.4
+2
+54.4
+4
+
+To determine if test 3 passes look for "Updated assigned SU" message
+
+TEST 4: Print the list, verify entry for 111 replaced
+
+PRINTASSIGNED
+STATS
+
+To determine if test 4 passes look for 2 records, and 111 record should be 
+updated with Time as 4.  Stats should still be 3 records, size 3
+
+TEST 5: look for a record in the list and one not in list
+
+LISTCH 1
+LISTCH 2
+LISTCH 3
+
+To determine if test 5 passes it should print one record on channel 1 and
+one records on channel 2.  No records on channel 3
+
+TEST 6:  Attempt to add fourth record. If list size is 3 then add will be rejected 
+
+ADDSU 
+222
+333
+202
+T
+standard
+3.3
+1
+10.222
+5
+ASSIGNSU 2
+ASSIGNSU 1
+PRINTASSIGNED
+PRINTWAITING
+STATS
+
+To check test 6, look for Moved waiting SU to channel and then assigned
+list is full. Print shows 3 records in assigned list and 1 waiting.
+
+TEST 7: Remove the last element in the list and try to remove an element 
+not in the list
+
+DELSU 551
+DELSU 552
+PRINTASSIGNED
+PRINTWAITING
+
+To verify test 7, should see removed 551, did not remove 552, and final list
+should be printed with 2 records.
+
+TEST 8: Test changing channels
+
+CHANGECH 2 3
+LISTCH 2
+LISTCH 3
+PRINTASSIGNED
+CLEARCH 3
+PRINTASSIGNED
+PRINTWAITING
+
+TEST 9: Quit
+
+to verify test 9, run with valgrind and confirm there are no memory leaks
+
+QUIT
+
+

@@ -1,0 +1,1724 @@
+testplan.txt
+Lab5: Binary Search Trees
+ECE 2230, Fall 2018
+David Lynge
+dlynge
+
+
+Each unit driver can be found below with detailed prints from each test. Each unit test passed and performed as expected. These test scripts show that the bst can correctly insert, remove, and replace keys while maintaining functionallity of the tree. In addition to the adt described in the problem statement, the nodes also contain a parent pointer. This pointer is checked during the validate debugging function and is correctly accounted for throughout the test cases.
+
+
+
+
+./lab5 -u 0			// example test to remove leaves, 12 and 20, then internal nodes
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 14 items into tree
+ -- Test (0) tree after adding key 32
+   32
+ -- Test (1) tree after adding key 16
+   32
+        16
+ -- Test (2) tree after adding key 8
+   32
+        16
+              8
+ -- Test (3) tree after adding key 24
+   32
+             24
+        16
+              8
+ -- Test (4) tree after adding key 4
+   32
+             24
+        16
+              8
+                   4
+ -- Test (5) tree after adding key 12
+   32
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (6) tree after adding key 20
+   32
+             24
+                  20
+        16
+                  12
+              8
+                   4
+ -- Test (7) tree after adding key 28
+   32
+                  28
+             24
+                  20
+        16
+                  12
+              8
+                   4
+ -- Test (8) tree after adding key 48
+        48
+   32
+                  28
+             24
+                  20
+        16
+                  12
+              8
+                   4
+ -- Test (9) tree after adding key 40
+        48
+             40
+   32
+                  28
+             24
+                  20
+        16
+                  12
+              8
+                   4
+ -- Test (10) tree after adding key 56
+             56
+        48
+             40
+   32
+                  28
+             24
+                  20
+        16
+                  12
+              8
+                   4
+ -- Test (11) tree after adding key 44
+             56
+        48
+                  44
+             40
+   32
+                  28
+             24
+                  20
+        16
+                  12
+              8
+                   4
+ -- Test (12) tree after adding key 42
+             56
+        48
+                  44
+                       42
+             40
+   32
+                  28
+             24
+                  20
+        16
+                  12
+              8
+                   4
+ -- Test (13) tree after adding key 46
+             56
+        48
+                       46
+                  44
+                       42
+             40
+   32
+                  28
+             24
+                  20
+        16
+                  12
+              8
+                   4
+
+All insertions complete.
+Removing 7 items from tree
+ -- Test (0) about to remove key 12
+             56
+        48
+                       46
+                  44
+                       42
+             40
+   32
+                  28
+             24
+                  20
+        16
+              8
+                   4
+ -- Test (1) about to remove key 20
+             56
+        48
+                       46
+                  44
+                       42
+             40
+   32
+                  28
+             24
+        16
+              8
+                   4
+ -- Test (2) about to remove key 8
+             56
+        48
+                       46
+                  44
+                       42
+             40
+   32
+                  28
+             24
+        16
+              4
+ -- Test (3) about to remove key 24
+             56
+        48
+                       46
+                  44
+                       42
+             40
+   32
+             28
+        16
+              4
+ -- Test (4) about to remove key 40
+             56
+        48
+                  46
+             44
+                  42
+   32
+             28
+        16
+              4
+ -- Test (5) about to remove key 16
+             56
+        48
+                  46
+             44
+                  42
+   32
+        28
+              4
+ -- Test (6) about to remove key 48
+        56
+                  46
+             44
+                  42
+   32
+        28
+              4
+
+
+
+
+./lab5 -u 1			// (48) is missing its right-left child and (16) is missing its left-right child
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 13 items into tree
+ -- Test (0) tree after adding key 32
+   32
+ -- Test (1) tree after adding key 16
+   32
+        16
+ -- Test (2) tree after adding key 48
+        48
+   32
+        16
+ -- Test (3) tree after adding key 8
+        48
+   32
+        16
+              8
+ -- Test (4) tree after adding key 24
+        48
+   32
+             24
+        16
+              8
+ -- Test (5) tree after adding key 40
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (6) tree after adding key 56
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (7) tree after adding key 4
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+                   4
+ -- Test (8) tree after adding key 20
+             56
+        48
+             40
+   32
+             24
+                  20
+        16
+              8
+                   4
+ -- Test (9) tree after adding key 28
+             56
+        48
+             40
+   32
+                  28
+             24
+                  20
+        16
+              8
+                   4
+ -- Test (10) tree after adding key 36
+             56
+        48
+             40
+                  36
+   32
+                  28
+             24
+                  20
+        16
+              8
+                   4
+ -- Test (11) tree after adding key 44
+             56
+        48
+                  44
+             40
+                  36
+   32
+                  28
+             24
+                  20
+        16
+              8
+                   4
+ -- Test (12) tree after adding key 60
+                  60
+             56
+        48
+                  44
+             40
+                  36
+   32
+                  28
+             24
+                  20
+        16
+              8
+                   4
+
+All insertions complete.
+Removing 3 items from tree
+ -- Test (0) about to remove key 16
+                  60
+             56
+        48
+                  44
+             40
+                  36
+   32
+                  28
+             24
+        20
+              8
+                   4
+ -- Test (1) about to remove key 48
+             60
+        56
+                  44
+             40
+                  36
+   32
+                  28
+             24
+        20
+              8
+                   4
+ -- Test (2) about to remove key 32
+             60
+        56
+                  44
+             40
+   36
+                  28
+             24
+        20
+              8
+                   4
+
+
+
+
+
+./lab5 -u 2			//example tests: (16) is missing its right-left child and (48) is missing its left-right child	
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 13 items into tree
+ -- Test (0) tree after adding key 32
+   32
+ -- Test (1) tree after adding key 16
+   32
+        16
+ -- Test (2) tree after adding key 48
+        48
+   32
+        16
+ -- Test (3) tree after adding key 8
+        48
+   32
+        16
+              8
+ -- Test (4) tree after adding key 24
+        48
+   32
+             24
+        16
+              8
+ -- Test (5) tree after adding key 40
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (6) tree after adding key 56
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (7) tree after adding key 4
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+                   4
+ -- Test (8) tree after adding key 12
+             56
+        48
+             40
+   32
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (9) tree after adding key 28
+             56
+        48
+             40
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (10) tree after adding key 36
+             56
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (11) tree after adding key 52
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (12) tree after adding key 60
+                  60
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+
+All insertions complete.
+Removing 3 items from tree
+ -- Test (0) about to remove key 16
+                  60
+             56
+                  52
+        48
+             40
+                  36
+   32
+             28
+        24
+                  12
+              8
+                   4
+ -- Test (1) about to remove key 48
+                  60
+             56
+        52
+             40
+                  36
+   32
+             28
+        24
+                  12
+              8
+                   4
+ -- Test (2) about to remove key 32
+                  60
+             56
+        52
+             40
+   36
+             28
+        24
+                  12
+              8
+                   4
+
+
+
+
+
+
+./lab5 -u 3			// example deletion with many children
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 16 items into tree
+ -- Test (0) tree after adding key 200
+  200
+ -- Test (1) tree after adding key 100
+  200
+       100
+ -- Test (2) tree after adding key 50
+  200
+       100
+             50
+ -- Test (3) tree after adding key 150
+  200
+            150
+       100
+             50
+ -- Test (4) tree after adding key 25
+  200
+            150
+       100
+             50
+                  25
+ -- Test (5) tree after adding key 75
+  200
+            150
+       100
+                  75
+             50
+                  25
+ -- Test (6) tree after adding key 125
+  200
+            150
+                 125
+       100
+                  75
+             50
+                  25
+ -- Test (7) tree after adding key 175
+  200
+                 175
+            150
+                 125
+       100
+                  75
+             50
+                  25
+ -- Test (8) tree after adding key 65
+  200
+                 175
+            150
+                 125
+       100
+                  75
+                       65
+             50
+                  25
+ -- Test (9) tree after adding key 85
+  200
+                 175
+            150
+                 125
+       100
+                       85
+                  75
+                       65
+             50
+                  25
+ -- Test (10) tree after adding key 135
+  200
+                 175
+            150
+                      135
+                 125
+       100
+                       85
+                  75
+                       65
+             50
+                  25
+ -- Test (11) tree after adding key 80
+  200
+                 175
+            150
+                      135
+                 125
+       100
+                       85
+                            80
+                  75
+                       65
+             50
+                  25
+ -- Test (12) tree after adding key 130
+  200
+                 175
+            150
+                      135
+                           130
+                 125
+       100
+                       85
+                            80
+                  75
+                       65
+             50
+                  25
+ -- Test (13) tree after adding key 140
+  200
+                 175
+            150
+                           140
+                      135
+                           130
+                 125
+       100
+                       85
+                            80
+                  75
+                       65
+             50
+                  25
+ -- Test (14) tree after adding key 78
+  200
+                 175
+            150
+                           140
+                      135
+                           130
+                 125
+       100
+                       85
+                            80
+                                 78
+                  75
+                       65
+             50
+                  25
+ -- Test (15) tree after adding key 82
+  200
+                 175
+            150
+                           140
+                      135
+                           130
+                 125
+       100
+                       85
+                                 82
+                            80
+                                 78
+                  75
+                       65
+             50
+                  25
+
+All insertions complete.
+Removing 3 items from tree
+ -- Test (0) about to remove key 100
+  200
+                 175
+            150
+                      140
+                 135
+                      130
+       125
+                       85
+                                 82
+                            80
+                                 78
+                  75
+                       65
+             50
+                  25
+ -- Test (1) about to remove key 85
+  200
+                 175
+            150
+                      140
+                 135
+                      130
+       125
+                            82
+                       80
+                            78
+                  75
+                       65
+             50
+                  25
+ -- Test (2) about to remove key 125
+  200
+                 175
+            150
+                      140
+                 135
+       130
+                            82
+                       80
+                            78
+                  75
+                       65
+             50
+                  25
+
+
+
+
+
+./lab5 -u 4			// check replace for duplicate key
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 2 items into tree
+ -- Test (0) tree after adding key 10
+   10
+ -- Test (1) tree after adding key 10
+   10
+
+All insertions complete.
+Removing 1 items from tree
+ -- Test (0) about to remove key 10
+
+
+
+
+
+./lab5 -u 5			// example from homework set
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 12 items into tree
+ -- Test (0) tree after adding key 14
+   14
+ -- Test (1) tree after adding key 6
+   14
+         6
+ -- Test (2) tree after adding key 20
+        20
+   14
+         6
+ -- Test (3) tree after adding key 12
+        20
+   14
+             12
+         6
+ -- Test (4) tree after adding key 1
+        20
+   14
+             12
+         6
+              1
+ -- Test (5) tree after adding key 5
+        20
+   14
+             12
+         6
+                   5
+              1
+ -- Test (6) tree after adding key 4
+        20
+   14
+             12
+         6
+                   5
+                        4
+              1
+ -- Test (7) tree after adding key 22
+             22
+        20
+   14
+             12
+         6
+                   5
+                        4
+              1
+ -- Test (8) tree after adding key 24
+                  24
+             22
+        20
+   14
+             12
+         6
+                   5
+                        4
+              1
+ -- Test (9) tree after adding key 26
+                       26
+                  24
+             22
+        20
+   14
+             12
+         6
+                   5
+                        4
+              1
+ -- Test (10) tree after adding key 28
+                            28
+                       26
+                  24
+             22
+        20
+   14
+             12
+         6
+                   5
+                        4
+              1
+ -- Test (11) tree after adding key 30
+                                 30
+                            28
+                       26
+                  24
+             22
+        20
+   14
+             12
+         6
+                   5
+                        4
+              1
+
+All insertions complete.
+Removing 1 items from tree
+ -- Test (0) about to remove key 10
+                                 30
+                            28
+                       26
+                  24
+             22
+        20
+   14
+             12
+         6
+                   5
+                        4
+              1
+
+
+FAILED to find the key in the tree ######
+
+
+
+
+
+./lab5 -u 6			// example with poor shape that improves wtih balancing 
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 17 items into tree
+ -- Test (0) tree after adding key 10
+   10
+ -- Test (1) tree after adding key 8
+   10
+         8
+ -- Test (2) tree after adding key 26
+        26
+   10
+         8
+ -- Test (3) tree after adding key 6
+        26
+   10
+         8
+              6
+ -- Test (4) tree after adding key 14
+        26
+             14
+   10
+         8
+              6
+ -- Test (5) tree after adding key 28
+             28
+        26
+             14
+   10
+         8
+              6
+ -- Test (6) tree after adding key 4
+             28
+        26
+             14
+   10
+         8
+              6
+                   4
+ -- Test (7) tree after adding key 20
+             28
+        26
+                  20
+             14
+   10
+         8
+              6
+                   4
+ -- Test (8) tree after adding key 30
+                  30
+             28
+        26
+                  20
+             14
+   10
+         8
+              6
+                   4
+ -- Test (9) tree after adding key 2
+                  30
+             28
+        26
+                  20
+             14
+   10
+         8
+              6
+                   4
+                        2
+ -- Test (10) tree after adding key 32
+                       32
+                  30
+             28
+        26
+                  20
+             14
+   10
+         8
+              6
+                   4
+                        2
+ -- Test (11) tree after adding key 16
+                       32
+                  30
+             28
+        26
+                  20
+                       16
+             14
+   10
+         8
+              6
+                   4
+                        2
+ -- Test (12) tree after adding key 18
+                       32
+                  30
+             28
+        26
+                  20
+                            18
+                       16
+             14
+   10
+         8
+              6
+                   4
+                        2
+ -- Test (13) tree after adding key 12
+                       32
+                  30
+             28
+        26
+                  20
+                            18
+                       16
+             14
+                  12
+   10
+         8
+              6
+                   4
+                        2
+ -- Test (14) tree after adding key 22
+                       32
+                  30
+             28
+        26
+                       22
+                  20
+                            18
+                       16
+             14
+                  12
+   10
+         8
+              6
+                   4
+                        2
+ -- Test (15) tree after adding key 24
+                       32
+                  30
+             28
+        26
+                            24
+                       22
+                  20
+                            18
+                       16
+             14
+                  12
+   10
+         8
+              6
+                   4
+                        2
+ -- Test (16) tree after adding key 34
+                            34
+                       32
+                  30
+             28
+        26
+                            24
+                       22
+                  20
+                            18
+                       16
+             14
+                  12
+   10
+         8
+              6
+                   4
+                        2
+
+All insertions complete.
+Removing 1 items from tree
+ -- Test (0) about to remove key 10
+                            34
+                       32
+                  30
+             28
+        26
+                            24
+                       22
+                  20
+                            18
+                       16
+             14
+   12
+         8
+              6
+                   4
+                        2
+
+
+
+
+
+./lab5 -u 7			// example removing root and removing the new root
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 13 items into tree
+ -- Test (0) tree after adding key 32
+   32
+ -- Test (1) tree after adding key 16
+   32
+        16
+ -- Test (2) tree after adding key 48
+        48
+   32
+        16
+ -- Test (3) tree after adding key 8
+        48
+   32
+        16
+              8
+ -- Test (4) tree after adding key 24
+        48
+   32
+             24
+        16
+              8
+ -- Test (5) tree after adding key 40
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (6) tree after adding key 56
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (7) tree after adding key 4
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+                   4
+ -- Test (8) tree after adding key 12
+             56
+        48
+             40
+   32
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (9) tree after adding key 28
+             56
+        48
+             40
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (10) tree after adding key 36
+             56
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (11) tree after adding key 52
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (12) tree after adding key 60
+                  60
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+
+All insertions complete.
+Removing 2 items from tree
+ -- Test (0) about to remove key 32
+                  60
+             56
+                  52
+        48
+             40
+   36
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (1) about to remove key 36
+                  60
+             56
+                  52
+        48
+   40
+                  28
+             24
+        16
+                  12
+              8
+                   4
+
+
+
+
+./lab5 -u 8			// example replacing root and then removing it
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 14 items into tree
+ -- Test (0) tree after adding key 32
+   32
+ -- Test (1) tree after adding key 16
+   32
+        16
+ -- Test (2) tree after adding key 48
+        48
+   32
+        16
+ -- Test (3) tree after adding key 8
+        48
+   32
+        16
+              8
+ -- Test (4) tree after adding key 24
+        48
+   32
+             24
+        16
+              8
+ -- Test (5) tree after adding key 40
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (6) tree after adding key 56
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (7) tree after adding key 4
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+                   4
+ -- Test (8) tree after adding key 12
+             56
+        48
+             40
+   32
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (9) tree after adding key 28
+             56
+        48
+             40
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (10) tree after adding key 36
+             56
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (11) tree after adding key 52
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (12) tree after adding key 60
+                  60
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (13) tree after adding key 32
+                  60
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+
+All insertions complete.
+Removing 1 items from tree
+ -- Test (0) about to remove key 32
+                  60
+             56
+                  52
+        48
+             40
+   36
+                  28
+             24
+        16
+                  12
+              8
+                   4
+
+
+
+
+
+./lab5 -u 9			// example replacing a leaf and removing it
+Seed: 10212018
+
+
+ ====== Unit Driver ======
+
+Inserting 14 items into tree
+ -- Test (0) tree after adding key 32
+   32
+ -- Test (1) tree after adding key 16
+   32
+        16
+ -- Test (2) tree after adding key 48
+        48
+   32
+        16
+ -- Test (3) tree after adding key 8
+        48
+   32
+        16
+              8
+ -- Test (4) tree after adding key 24
+        48
+   32
+             24
+        16
+              8
+ -- Test (5) tree after adding key 40
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (6) tree after adding key 56
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+ -- Test (7) tree after adding key 4
+             56
+        48
+             40
+   32
+             24
+        16
+              8
+                   4
+ -- Test (8) tree after adding key 12
+             56
+        48
+             40
+   32
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (9) tree after adding key 28
+             56
+        48
+             40
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (10) tree after adding key 36
+             56
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (11) tree after adding key 52
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (12) tree after adding key 60
+                  60
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+ -- Test (13) tree after adding key 48
+                  60
+             56
+                  52
+        48
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+
+All insertions complete.
+Removing 1 items from tree
+ -- Test (0) about to remove key 48
+                  60
+             56
+        52
+             40
+                  36
+   32
+                  28
+             24
+        16
+                  12
+              8
+                   4
+
+
+
+
+
+./lab5 -o -w 5 -t 0 -v			// tests inserts only and prints tree
+Seed: 10212018
+
+----- Access driver -----
+  Access trials: 0
+  Levels for tree: 5
+  Build optimal tree with size=31
+                       62
+                  60
+                       58
+             56
+                       54
+                  52
+                       50
+        48
+                       46
+                  44
+                       42
+             40
+                       38
+                  36
+                       34
+   32
+                       30
+                  28
+                       26
+             24
+                       22
+                  20
+                       18
+        16
+                       14
+                  12
+                       10
+              8
+                        6
+                   4
+                        2
+----- End of access driver -----
+
+
+
+
+
+./lab5 -r -w 5 -t 0 -v -s 1			// same with random tree
+Seed: 1
+
+----- Access driver -----
+  Access trials: 0
+  Levels for tree: 5
+  Build random tree with size=31
+                  62
+                            60
+                       58
+                            56
+             54
+                       52
+                                 50
+                                      48
+                            46
+                                      44
+                                 42
+                  40
+                            38
+                       36
+                                 34
+                            32
+        30
+                  28
+             26
+                            24
+                       22
+                            20
+                                      18
+                                 16
+                                      14
+                  12
+                            10
+                        8
+                             6
+    4
+         2
+----- End of access driver -----
+
+
+
+
+
+
+./lab5 -p -w 5 -t 0 -v -s 1			// same with poor tree
+Seed: 1
+
+----- Access driver -----
+  Access trials: 0
+  Levels for tree: 5
+  Build poor tree with size=31
+             62
+                  60
+                       58
+                            56
+                                 54
+                                      52
+                                           50
+        48
+             46
+                       44
+                                 42
+                                           40
+                                      38
+                            36
+                  34
+   32
+             30
+                  28
+                       26
+                            24
+                                 22
+                                      20
+                                           18
+        16
+                                           14
+                                      12
+                                 10
+                             8
+                        6
+                   4
+              2
+----- End of access driver -----
+
+
+
+
+
+
+./lab5 -o -w 16 -t 50000			// tests inserts and accesses
+Seed: 10212018
+
+----- Access driver -----
+  Access trials: 50000
+  Levels for tree: 16
+  Build optimal tree with size=65535
+  After access exercise, time=32.269, tree size=65535
+    Expect successful search=29.0005, measured=28.9929, trials=24907
+    Expect unsuccessful search=32, measured=32, trials=25093
+----- End of access driver -----
+
+
+
+
+
+./lab5 -r -w 16 -t 50000			// same with random tree
+Seed: 10212018
+
+----- Access driver -----
+  Access trials: 50000
+  Levels for tree: 16
+  Build random tree with size=65535
+  After access exercise, time=22.792, tree size=65535
+    Expect successful search=40.4003, measured=40.3991, trials=25106
+    Expect unsuccessful search=43.3996, measured=43.4285, trials=24894
+----- End of access driver -----
+
+
+
+
+
+./lab5 -p -w 16 -t 50000			// same with poor tree
+Seed: 10212018
+
+----- Access driver -----
+  Access trials: 50000
+  Levels for tree: 16
+  Build poor tree with size=65535
+  After access exercise, time=77.967, tree size=65535
+    Expect successful search=269.996, measured=269.588, trials=24904
+    Expect unsuccessful search=272.992, measured=273.967, trials=25096
+----- End of access driver -----
+
+
+
+
+
+./lab5 -e -w 20 -t 100000			// exercise the tree
+Seed: 10212018
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 20
+  Initial random tree size=1048575
+  Expect successful search for initial tree=51.7207
+  Expect unsuccessful search for initial tree=54.7207
+  After exercise, time=93.255, new tree size=1048638
+  successful searches during exercise=51.7232, trials=50056
+  unsuccessful searches during exercise=54.6385, trials=49944
+  Validating tree...passed
+  After access experiment, time=85.684, tree size=1048638
+  Expect successful search=51.7094, measured=51.6772, trials=49988
+  Expect unsuccessful search=54.7094, measured=54.5007, trials=50012
+----- End of equilibrium test -----
+
+

@@ -1,0 +1,31 @@
+Welcome to lab2. Possible commands:
+CREATE x; ADDSU; DELSU x
+LISTCH x; CLEARCH x; CHANGECH old new; ASSIGNSU x
+PRINTASSIGNED; PRINTWAITING
+STATS; QUIT
+# Prof. Harlan Russell
+# ECE 2230, MP2, Fall 2018
+# test4 single remove no leak
+# 
+Assignment list size limit: 1
+New assignment list
+New waiting queue
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 111
+Removed: 111 from waiting queue
+ID: 111, C: 1, MIP: 100, AID: 200, Auth: F, Pri: none, B: 2.4, R: 1.3 Time: 1
+List records:  0, Max list size: 1  Queue records: 0
+Assigned List empty
+
+Waiting Queue empty
+
+# 
+# Output must be:
+# /    Inserted new waiting SU: 111
+# /    Removed: 111 from waiting queue
+# /    ID: 111, C: 1, MIP: 100, AID: 200, Auth: F, Pri: none, B: 2.4, R: 1.3 Time: 1
+# /    List records:  0, Max list size: 1  Queue records: 0
+# /    Assigned List empty
+# /    Waiting Queue empty
+# /    Goodbye
+Goodbye

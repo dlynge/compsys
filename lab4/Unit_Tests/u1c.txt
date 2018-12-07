@@ -1,0 +1,45 @@
+Seed: 1765640879
+First-fit search policy using coalescing
+
+----- Begin unit driver 1 -----
+There are 256 units per page, and the size of chunk_t is 16 bytes
+first: 496 bytes (31 units) p=0xc52010 
+p=0xc52200, size=224, end=0xc53000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52200 <-- dummy
+second: 2032 bytes (127 units) p=0xc52210 
+p=0xc52a00, size=96, end=0xc53000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52a00 <-- dummy
+third: 1520 bytes (95 units) p=0xc52a10 
+p=0x6060d0, size=0, end=0x6060d0, next=0x6060d0 <-- dummy
+unit driver 1: above Mem_print shows empty free list
+fourth: 1008 bytes (63 units) p=0xc53010 
+p=0xc53400, size=192, end=0xc54000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc53400 <-- dummy
+first free of 1/8 a page p=0xc52010 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52000 <-- dummy
+p=0xc52000, size=32, end=0xc52200, next=0xc53400 
+p=0xc53400, size=192, end=0xc54000, next=0x6060d0 
+second free of 3/8 a page p=0xc52a10 
+p=0xc52000, size=32, end=0xc52200, next=0xc52a00 
+p=0xc52a00, size=96, end=0xc53000, next=0xc53400 
+p=0xc53400, size=192, end=0xc54000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52000 <-- dummy
+third free of 1/2 a page p=0xc52210 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52000 <-- dummy
+p=0xc52000, size=256, end=0xc53000, next=0xc53400 
+p=0xc53400, size=192, end=0xc54000, next=0x6060d0 
+fourth free of 1/4 a page p=0xc53010
+unit driver 1 has returned all memory to free list
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52000 <-- dummy
+p=0xc52000, size=512, end=0xc54000, next=0x6060d0 
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 8192 B
+Maximum size (bytes) in free list -- 8192 B
+Average size (bytes) in free list -- 8192 B
+Total memory (bytes) in free list -- 8192 B
+Number of calls to sbrk -- 2
+Number of pages requested -- 2
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 1 -----

@@ -1,0 +1,99 @@
+Welcome to lab2. Possible commands:
+CREATE x; ADDSU; DELSU x
+LISTCH x; CLEARCH x; CHANGECH old new; ASSIGNSU x
+PRINTASSIGNED; PRINTWAITING
+STATS; QUIT
+# Prof. Harlan Russell
+# ECE 2230, MP2, Spring 2015
+# test7 full list with size 5
+# 
+Assignment list size limit: 5
+New assignment list
+New waiting queue
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 3
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 5
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 7
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 9
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 11
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 13
+Moved waiting SU 3 to channel: 1
+Moved waiting SU 5 to channel: 1
+Moved waiting SU 7 to channel: 1
+Moved waiting SU 9 to channel: 1
+Moved waiting SU 11 to channel: 1
+Assigned List has 5 records
+1: ID: 3, C: 1, MIP: 103, AID: 203, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+2: ID: 5, C: 1, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+3: ID: 7, C: 1, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+4: ID: 9, C: 1, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+5: ID: 11, C: 1, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Updated assigned SU: 3
+Assigned List has 5 records
+1: ID: 3, C: 1, MIP: 113, AID: 213, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 7
+2: ID: 5, C: 1, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+3: ID: 7, C: 1, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+4: ID: 9, C: 1, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+5: ID: 11, C: 1, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+
+User(s) waiting but the assigned list is full 5
+Removed: 3 from assigned list
+ID: 3, C: 1, MIP: 113, AID: 213, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 7
+Moved waiting SU 13 to channel: 3
+List records:  5, Max list size: 5  Queue records: 0
+Assigned List has 5 records
+1: ID: 5, C: 1, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+2: ID: 7, C: 1, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+3: ID: 9, C: 1, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+4: ID: 11, C: 1, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+5: ID: 13, C: 3, MIP: 113, AID: 213, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 6
+
+Waiting Queue empty
+
+# 
+# Output must be:
+# /    Inserted new waiting SU: 3
+# /    Inserted new waiting SU: 5
+# /    Inserted new waiting SU: 7
+# /    Inserted new waiting SU: 9
+# /    Inserted new waiting SU: 11
+# /    Inserted new waiting SU: 13
+# /    Moved waiting SU 3 to channel: 1
+# /    Moved waiting SU 5 to channel: 1
+# /    Moved waiting SU 7 to channel: 1
+# /    Moved waiting SU 9 to channel: 1
+# /    Moved waiting SU 11 to channel: 1
+# /    Assigned List has 5 records
+# /    1: ID: 3, C: 1, MIP: 103, AID: 203, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 1
+# /    2: ID: 5, C: 1, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+# /    3: ID: 7, C: 1, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+# /    4: ID: 9, C: 1, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+# /    5: ID: 11, C: 1, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+# /    Updated assigned SU: 3
+# /    Assigned List has 5 records
+# /    1: ID: 3, C: 1, MIP: 113, AID: 213, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 7
+# /    2: ID: 5, C: 1, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+# /    3: ID: 7, C: 1, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+# /    4: ID: 9, C: 1, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+# /    5: ID: 11, C: 1, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+# /    User(s) waiting but the assigned list is full 5
+# /    Removed: 3 from assigned list
+# /    ID: 3, C: 1, MIP: 113, AID: 213, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 7
+# /    Moved waiting SU 13 to channel: 3
+# /    List records:  5, Max list size: 5  Queue records: 0
+# /    Assigned List has 5 records
+# /    1: ID: 5, C: 1, MIP: 105, AID: 205, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 2
+# /    2: ID: 7, C: 1, MIP: 107, AID: 207, Auth: T, Pri: NSA, B: 2.4, R: 1.3 Time: 3
+# /    3: ID: 9, C: 1, MIP: 109, AID: 209, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 4
+# /    4: ID: 11, C: 1, MIP: 111, AID: 211, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 5
+# /    5: ID: 13, C: 3, MIP: 113, AID: 213, Auth: F, Pri: NSA, B: 2.4, R: 1.3 Time: 6
+# /    Waiting Queue empty
+# /    Goodbye
+Goodbye

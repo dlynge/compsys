@@ -1,0 +1,348 @@
+TestPlan.txt
+David Lynge
+dlynge
+ECE 2230 Fall 2018
+MP4
+
+
+Unit Test 1:
+This was provided as a simple example where 3 blocks of memory were allocated to take up an entire page and then freed in order. At the end, we see that coalescing allowed the final free memory block to be seen as one contiguous block. Without coalescing, the 3 blocks of memory stay seperate at the end when everything is freed.
+
+Seed: 1765640879
+First-fit search policy without coalescing
+
+----- Begin unit driver 1 -----
+There are 256 units per page, and the size of chunk_t is 16 bytes
+first: 496 bytes (31 units) p=0x133a010 
+p=0x133a200, size=224, end=0x133b000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x133a200 <-- dummy
+second: 2032 bytes (127 units) p=0x133a210 
+p=0x133aa00, size=96, end=0x133b000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x133aa00 <-- dummy
+third: 1520 bytes (95 units) p=0x133aa10 
+p=0x6060d0, size=0, end=0x6060d0, next=0x6060d0 <-- dummy
+unit driver 1: above Mem_print shows empty free list
+fourth: 1008 bytes (63 units) p=0x133b010 
+p=0x133b400, size=192, end=0x133c000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x133b400 <-- dummy
+first free of 1/8 a page p=0x133a010 
+p=0x133b400, size=192, end=0x133c000, next=0x133a000 
+p=0x133a000, size=32, end=0x133a200, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x133b400 <-- dummy
+second free of 3/8 a page p=0x133aa10 
+p=0x133b400, size=192, end=0x133c000, next=0x133aa00 
+p=0x133aa00, size=96, end=0x133b000, next=0x133a000 
+p=0x133a000, size=32, end=0x133a200, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x133b400 <-- dummy
+third free of 1/2 a page p=0x133a210 
+p=0x133b400, size=192, end=0x133c000, next=0x133a200 
+p=0x133a200, size=128, end=0x133aa00, next=0x133aa00 
+p=0x133aa00, size=96, end=0x133b000, next=0x133a000 
+p=0x133a000, size=32, end=0x133a200, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x133b400 <-- dummy
+fourth free of 1/4 a page p=0x133b010
+unit driver 1 has returned all memory to free list
+p=0x133b400, size=192, end=0x133c000, next=0x133b000 
+p=0x133b000, size=64, end=0x133b400, next=0x133a200 
+p=0x133a200, size=128, end=0x133aa00, next=0x133aa00 
+p=0x133aa00, size=96, end=0x133b000, next=0x133a000 
+p=0x133a000, size=32, end=0x133a200, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x133b400 <-- dummy
+Total items in free list -- 5
+Minimum size (bytes) in free list -- 512 B
+Maximum size (bytes) in free list -- 3072 B
+Average size (bytes) in free list -- 1638 B
+Total memory (bytes) in free list -- 8192 B
+Number of calls to sbrk -- 2
+Number of pages requested -- 2
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 1 -----
+
+
+Seed: 1765640879
+First-fit search policy using coalescing
+
+----- Begin unit driver 1 -----
+There are 256 units per page, and the size of chunk_t is 16 bytes
+first: 496 bytes (31 units) p=0xc52010 
+p=0xc52200, size=224, end=0xc53000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52200 <-- dummy
+second: 2032 bytes (127 units) p=0xc52210 
+p=0xc52a00, size=96, end=0xc53000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52a00 <-- dummy
+third: 1520 bytes (95 units) p=0xc52a10 
+p=0x6060d0, size=0, end=0x6060d0, next=0x6060d0 <-- dummy
+unit driver 1: above Mem_print shows empty free list
+fourth: 1008 bytes (63 units) p=0xc53010 
+p=0xc53400, size=192, end=0xc54000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc53400 <-- dummy
+first free of 1/8 a page p=0xc52010 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52000 <-- dummy
+p=0xc52000, size=32, end=0xc52200, next=0xc53400 
+p=0xc53400, size=192, end=0xc54000, next=0x6060d0 
+second free of 3/8 a page p=0xc52a10 
+p=0xc52000, size=32, end=0xc52200, next=0xc52a00 
+p=0xc52a00, size=96, end=0xc53000, next=0xc53400 
+p=0xc53400, size=192, end=0xc54000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52000 <-- dummy
+third free of 1/2 a page p=0xc52210 
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52000 <-- dummy
+p=0xc52000, size=256, end=0xc53000, next=0xc53400 
+p=0xc53400, size=192, end=0xc54000, next=0x6060d0 
+fourth free of 1/4 a page p=0xc53010
+unit driver 1 has returned all memory to free list
+p=0x6060d0, size=0, end=0x6060d0, next=0xc52000 <-- dummy
+p=0xc52000, size=512, end=0xc54000, next=0x6060d0 
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 8192 B
+Maximum size (bytes) in free list -- 8192 B
+Average size (bytes) in free list -- 8192 B
+Total memory (bytes) in free list -- 8192 B
+Number of calls to sbrk -- 2
+Number of pages requested -- 2
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 1 -----
+
+
+
+Unit Test 2:
+This shows that the memory manager performs properly when a gap is formed. Initially, 3 blocks of memory are allocated, like in unit test 1. However, when freeing, the 2nd pointer is freed last. This causes a gap that can be seen when coalescing is either on or off. When the 2nd pointer is finally freed, the gap will close if coalescing is on.
+
+
+Seed: 1765640879
+First-fit search policy without coalescing
+
+----- Begin unit driver 2 -----
+There are 4096 bytes per page, and the size of chunk_t is 16 bytes
+Allocated 3 memory blocks taking up an entire page
+p=0x6060d0, size=0, end=0x6060d0, next=0x6060d0 <-- dummy
+Free list above should be empty
+
+Free'd memory blocks 1 and 3
+p=0x6060d0, size=0, end=0x6060d0, next=0x1f6fc00 <-- dummy
+p=0x1f6fc00, size=64, end=0x1f70000, next=0x1f6f000 
+p=0x1f6f000, size=128, end=0x1f6f800, next=0x6060d0 
+Free list above should show a gap
+
+Free'd last block 2
+p=0x6060d0, size=0, end=0x6060d0, next=0x1f6f800 <-- dummy
+p=0x1f6f800, size=64, end=0x1f6fc00, next=0x1f6fc00 
+p=0x1f6fc00, size=64, end=0x1f70000, next=0x1f6f000 
+p=0x1f6f000, size=128, end=0x1f6f800, next=0x6060d0 
+Free list above should be a page in size
+
+Total items in free list -- 3
+Minimum size (bytes) in free list -- 1024 B
+Maximum size (bytes) in free list -- 2048 B
+Average size (bytes) in free list -- 1365 B
+Total memory (bytes) in free list -- 4096 B
+Number of calls to sbrk -- 1
+Number of pages requested -- 1
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 2 -----
+
+
+
+Seed: 1765640879
+First-fit search policy using coalescing
+
+----- Begin unit driver 2 -----
+There are 4096 bytes per page, and the size of chunk_t is 16 bytes
+Allocated 3 memory blocks taking up an entire page
+p=0x6060d0, size=0, end=0x6060d0, next=0x6060d0 <-- dummy
+Free list above should be empty
+
+Free'd memory blocks 1 and 3
+p=0x65b000, size=128, end=0x65b800, next=0x65bc00 
+p=0x65bc00, size=64, end=0x65c000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x65b000 <-- dummy
+Free list above should show a gap
+
+Free'd last block 2
+p=0x6060d0, size=0, end=0x6060d0, next=0x65b000 <-- dummy
+p=0x65b000, size=256, end=0x65c000, next=0x6060d0 
+Free list above should be a page in size
+
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 4096 B
+Maximum size (bytes) in free list -- 4096 B
+Average size (bytes) in free list -- 4096 B
+Total memory (bytes) in free list -- 4096 B
+Number of calls to sbrk -- 1
+Number of pages requested -- 1
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 2 -----
+
+
+Unit Test 3:
+Test 3 accomplishes the same as Test 2, but with different sized allocations. Pointer 1 will allocate PAGESIZE of memory, pointer 2 will allocate PAGESIZE - unit, and pointer 3 will allocate PAGESIZE + unit. This allows us to test boundary cases for when the requested memory is around the size of a page. For pointer 2, the amount of memory allocated is the same as PAGESIZE, because a new memory block cannot be formed from a single leftover unit.
+
+
+Seed: 1765640879
+First-fit search policy without coalescing
+
+----- Begin unit driver 3 -----
+There are 4096 bytes per page, and the size of chunk_t is 16 bytes
+Allocated 3 memory blocks, each around a page in size
+p=0x18a4010, size=255, end=0x18a5000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x18a4010 <-- dummy
+Free list above should show 1 empty item
+
+Free'd memory blocks 1 and 3
+p=0x18a4010, size=255, end=0x18a5000, next=0x18a3000 
+p=0x18a3000, size=257, end=0x18a4010, next=0x18a1000 
+p=0x18a1000, size=256, end=0x18a2000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x18a4010 <-- dummy
+Free list above should show a gap
+
+Free'd last block 2
+p=0x18a4010, size=255, end=0x18a5000, next=0x18a2000 
+p=0x18a2000, size=256, end=0x18a3000, next=0x18a3000 
+p=0x18a3000, size=257, end=0x18a4010, next=0x18a1000 
+p=0x18a1000, size=256, end=0x18a2000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x18a4010 <-- dummy
+Free list above should be a page in size
+
+Total items in free list -- 4
+Minimum size (bytes) in free list -- 4080 B
+Maximum size (bytes) in free list -- 4112 B
+Average size (bytes) in free list -- 4096 B
+Total memory (bytes) in free list -- 16384 B
+Number of calls to sbrk -- 3
+Number of pages requested -- 4
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 3 -----
+
+
+
+Seed: 1765640879
+First-fit search policy using coalescing
+
+----- Begin unit driver 3 -----
+There are 4096 bytes per page, and the size of chunk_t is 16 bytes
+Allocated 3 memory blocks, each around a page in size
+p=0xf2a010, size=255, end=0xf2b000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xf2a010 <-- dummy
+Free list above should show 1 empty item
+
+Free'd memory blocks 1 and 3
+p=0xf27000, size=256, end=0xf28000, next=0xf29000 
+p=0xf29000, size=512, end=0xf2b000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0xf27000 <-- dummy
+Free list above should show a gap
+
+Free'd last block 2
+p=0x6060d0, size=0, end=0x6060d0, next=0xf27000 <-- dummy
+p=0xf27000, size=1024, end=0xf2b000, next=0x6060d0 
+Free list above should be a page in size
+
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 16384 B
+Maximum size (bytes) in free list -- 16384 B
+Average size (bytes) in free list -- 16384 B
+Total memory (bytes) in free list -- 16384 B
+Number of calls to sbrk -- 3
+Number of pages requested -- 4
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 3 -----
+
+
+
+Unit Test 4:
+This test shows how the roving pointer spreads the allocation of memory throughout the free list. At the start, a single block of memory is allocated, then immediately freed. Now, if there's no coalescing, the roving pointer should point to the next block. We can see this, because when we allocate the next block, it does not take it from the block previously allocated. This allows the allocation to be spread across the free list.
+
+
+
+Seed: 1765640879
+First-fit search policy without coalescing
+
+----- Begin unit driver 4 -----
+There are 4096 bytes per page, and the size of chunk_t is 16 bytes
+Allocated 1 memory block of size 256 B
+p=0x71e100, size=240, end=0x71f000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x71e100 <-- dummy
+Free list above should show 1 empty item
+
+Free'd the previous memory block
+p=0x71e100, size=240, end=0x71f000, next=0x71e000 
+p=0x71e000, size=16, end=0x71e100, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x71e100 <-- dummy
+Free list above should have the size of one page
+
+Allocated a new block of size 128 B
+p=0x71e180, size=232, end=0x71f000, next=0x71e000 
+p=0x71e000, size=16, end=0x71e100, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x71e180 <-- dummy
+Free list above should show how the allocation rover moves
+
+Free'd last block 2
+p=0x71e180, size=232, end=0x71f000, next=0x71e100 
+p=0x71e100, size=8, end=0x71e180, next=0x71e000 
+p=0x71e000, size=16, end=0x71e100, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x71e180 <-- dummy
+Free list above should be a page in size
+
+Total items in free list -- 3
+Minimum size (bytes) in free list -- 128 B
+Maximum size (bytes) in free list -- 3712 B
+Average size (bytes) in free list -- 1365 B
+Total memory (bytes) in free list -- 4096 B
+Number of calls to sbrk -- 1
+Number of pages requested -- 1
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 4 -----
+
+
+Seed: 1765640879
+First-fit search policy using coalescing
+
+----- Begin unit driver 4 -----
+There are 4096 bytes per page, and the size of chunk_t is 16 bytes
+Allocated 1 memory block of size 256 B
+p=0x142e100, size=240, end=0x142f000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x142e100 <-- dummy
+Free list above should show 1 empty item
+
+Free'd the previous memory block
+p=0x6060d0, size=0, end=0x6060d0, next=0x142e000 <-- dummy
+p=0x142e000, size=256, end=0x142f000, next=0x6060d0 
+Free list above should have the size of one page
+
+Allocated a new block of size 128 B
+p=0x142e080, size=248, end=0x142f000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x142e080 <-- dummy
+Free list above should show how the allocation rover moves
+
+Free'd last block 2
+p=0x6060d0, size=0, end=0x6060d0, next=0x142e000 <-- dummy
+p=0x142e000, size=256, end=0x142f000, next=0x6060d0 
+Free list above should be a page in size
+
+Total items in free list -- 1
+Minimum size (bytes) in free list -- 4096 B
+Maximum size (bytes) in free list -- 4096 B
+Average size (bytes) in free list -- 4096 B
+Total memory (bytes) in free list -- 4096 B
+Number of calls to sbrk -- 1
+Number of pages requested -- 1
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 4 -----
+
+
+In all of these tests, all of the memory that was allocated was freed. We can see this when the program reaches the end and prints "no leaks are possible" if nothing was lost.

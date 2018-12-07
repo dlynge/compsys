@@ -1,0 +1,41 @@
+Welcome to lab2. Possible commands:
+CREATE x; ADDSU; DELSU x
+LISTCH x; CLEARCH x; CHANGECH old new; ASSIGNSU x
+PRINTASSIGNED; PRINTWAITING
+STATS; QUIT
+# Prof. Harlan Russell
+# ECE 2230, MP2, Fall 2018
+# test1 empty list
+# designed for a list size of 5
+# 
+Assignment list size limit: 5
+New assignment list
+New waiting queue
+No secondary users are waiting
+List records:  0, Max list size: 5  Queue records: 0
+Did not find any users on channel 1
+Did not find any users on channel 2
+List is empty: no users on ch 1
+Did not remove: 0
+Assigned List empty
+
+Waiting Queue empty
+
+# 
+# Output must be:
+# 
+# /    Assignment list size limit: 5
+# /    New assignment list
+# /    New waiting queue
+# /    No secondary users are waiting
+# /    List records:  0, Max list size: 5  Queue records: 0
+# /    Did not find any users on channel 1
+# /    Did not find any users on channel 2
+# /    List is empty: no users on ch 1
+# /    Did not remove: 0
+# /    Assigned List empty
+# /    
+# /    Waiting Queue empty
+# /    
+# /    Goodbye
+Goodbye

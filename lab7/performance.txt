@@ -1,0 +1,300 @@
+performance.txt
+Lab7: Hash Tables 
+David Lynge
+dlynge
+ECE 2230, Fall 2018
+
+
+(1) For the retrieve driver, the results for different input parameters are shown below. Since we were using a bad combination for some of the tests, I used a load factor of 0.5 to help ensure it wouldn't create an endless loop and crash. We can see that the data closely matches the predictions, especially when the load factor is around half. In the first case, we have an average of 2.50788 which is only 0.00788 off from the predicted value. The amount of error between the measured and predicted values stay within 0.1 average probes. This small discrepency may be due to the fact that the predicted value is what the measured data should tend towards, but it will never be perfect.
+
+./lab7 -r -i rand -h linear -m 65537 -a 0.5
+Table size (65537), load factor (0.5)
+Open addressing with linear probe sequence
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 32768 random keys
+    The average number of probes for a successful search = 1.51013
+    Avg probes for successful search = 1 measured with 4 trials
+    Avg probes for unsuccessful search = 2.50788 measured with 49996 trials
+--- Linear probe sequence performance formulas ---
+    Expected probes for successful search 1.5
+    Expected probes for unsuccessful search 2.5
+----- End of access driver -----
+
+./lab7 -r -i rand -h double -m 65537 -a 0.5
+Table size (65537), load factor (0.5)
+Open addressing with double hashing
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 32768 random keys
+    The average number of probes for a successful search = 1.38678
+    Avg probes for successful search = 1 measured with 4 trials
+    Avg probes for unsuccessful search = 1.9931 measured with 49996 trials
+--- Double hashing performance formulas ---
+    Expected probes for successful search 1.38629
+    Expected probes for unsuccessful search 2
+----- End of access driver -----
+
+./lab7 -r -i rand -h quad -m 65537 -a 0.5
+Table size (65537), load factor (0.5)
+Open addressing with quadratic probe sequence
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 32768 random keys
+    The average number of probes for a successful search = 1.44351
+    Avg probes for successful search = 1 measured with 4 trials
+    Avg probes for unsuccessful search = 2.16983 measured with 49996 trials
+--- Quadratic probe sequence performance formulas ---
+    Expected probes for successful search 1.44315
+    Expected probes for unsuccessful search 2.19315
+----- End of access driver -----
+
+./lab7 -r -i rand -h linear -m 65536 -a 0.5
+Table size (65536), load factor (0.5)
+Open addressing with linear probe sequence
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 32768 random keys
+    The average number of probes for a successful search = 1.49371
+    Avg probes for successful search = 1 measured with 4 trials
+    Avg probes for unsuccessful search = 2.47898 measured with 49996 trials
+--- Linear probe sequence performance formulas ---
+    Expected probes for successful search 1.5
+    Expected probes for unsuccessful search 2.5
+----- End of access driver -----
+
+./lab7 -r -i rand -h double -m 65536 -a 0.5
+Table size (65536), load factor (0.5)
+Open addressing with double hashing
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 32768 random keys
+    The average number of probes for a successful search = 1.38193
+    Avg probes for successful search = 1 measured with 4 trials
+    Avg probes for unsuccessful search = 1.99036 measured with 49996 trials
+--- Double hashing performance formulas ---
+    Expected probes for successful search 1.38629
+    Expected probes for unsuccessful search 2
+----- End of access driver -----
+
+./lab7 -r -i rand -h quad -m 65536 -a 0.5
+Table size (65536), load factor (0.5)
+Open addressing with quadratic probe sequence
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 32768 random keys
+    The average number of probes for a successful search = 1.42847
+    Avg probes for successful search = 1 measured with 4 trials
+    Avg probes for unsuccessful search = 2.14709 measured with 49996 trials
+--- Quadratic probe sequence performance formulas ---
+    Expected probes for successful search 1.44315
+    Expected probes for unsuccessful search 2.19315
+----- End of access driver -----
+
+./lab7 -r -i rand -h double -m 65537 -a 0.5
+Table size (65537), load factor (0.5)
+Open addressing with double hashing
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 32768 random keys
+    The average number of probes for a successful search = 1.38678
+    Avg probes for successful search = 1 measured with 4 trials
+    Avg probes for unsuccessful search = 1.9931 measured with 49996 trials
+--- Double hashing performance formulas ---
+    Expected probes for successful search 1.38629
+    Expected probes for unsuccessful search 2
+----- End of access driver -----
+
+dlynge@apollo03:~/compsys/lab7$ ./lab7 -r -i rand -h double -m 65537 -a 0.75
+Table size (65537), load factor (0.75)
+Open addressing with double hashing
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 49152 random keys
+during random build generated duplicate key (981012413) on trial (34276)
+this should be unlikely: if see more than a few you have a problem
+    The average number of probes for a successful search = 1.84031
+    Avg probes for successful search = 1 measured with 3 trials
+    Avg probes for unsuccessful search = 4.0152 measured with 49997 trials
+--- Double hashing performance formulas ---
+    Expected probes for successful search 1.84839
+    Expected probes for unsuccessful search 4
+----- End of access driver -----
+
+dlynge@apollo03:~/compsys/lab7$ ./lab7 -r -i rand -h double -m 65537 -a 0.9
+Table size (65537), load factor (0.9)
+Open addressing with double hashing
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 58983 random keys
+during random build generated duplicate key (981012413) on trial (34276)
+this should be unlikely: if see more than a few you have a problem
+during random build generated duplicate key (129593823) on trial (55824)
+this should be unlikely: if see more than a few you have a problem
+during random build generated duplicate key (272743182) on trial (58553)
+this should be unlikely: if see more than a few you have a problem
+    The average number of probes for a successful search = 2.55584
+    Avg probes for successful search = 1 measured with 1 trials
+    Avg probes for unsuccessful search = 10.0263 measured with 49999 trials
+--- Double hashing performance formulas ---
+    Expected probes for successful search 2.55843
+    Expected probes for unsuccessful search 10
+----- End of access driver -----
+
+dlynge@apollo03:~/compsys/lab7$ ./lab7 -r -i rand -h double -m 65537 -a 0.95
+Table size (65537), load factor (0.95)
+Open addressing with double hashing
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 62260 random keys
+during random build generated duplicate key (981012413) on trial (34276)
+this should be unlikely: if see more than a few you have a problem
+during random build generated duplicate key (129593823) on trial (55824)
+this should be unlikely: if see more than a few you have a problem
+during random build generated duplicate key (272743182) on trial (58553)
+this should be unlikely: if see more than a few you have a problem
+    The average number of probes for a successful search = 3.1496
+    Avg probes for successful search = 1 measured with 1 trials
+    Avg probes for unsuccessful search = 20.0407 measured with 49999 trials
+--- Double hashing performance formulas ---
+    Expected probes for successful search 3.1534
+    Expected probes for unsuccessful search 20
+----- End of access driver -----
+
+dlynge@apollo03:~/compsys/lab7$ ./lab7 -r -i rand -h double -m 65537 -a 0.99
+Table size (65537), load factor (0.99)
+Open addressing with double hashing
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 64881 random keys
+during random build generated duplicate key (981012413) on trial (34276)
+this should be unlikely: if see more than a few you have a problem
+during random build generated duplicate key (129593823) on trial (55824)
+this should be unlikely: if see more than a few you have a problem
+during random build generated duplicate key (272743182) on trial (58553)
+this should be unlikely: if see more than a few you have a problem
+    The average number of probes for a successful search = 4.66812
+    Avg probes for successful search = 1 measured with 1 trials
+    Avg probes for unsuccessful search = 99.3912 measured with 49999 trials
+--- Double hashing performance formulas ---
+    Expected probes for successful search 4.65169
+    Expected probes for unsuccessful search 100
+----- End of access driver -----
+
+
+
+(2) The table below shows the recorded values for trials done with various combinations of probing and table builds. The table entries also include the big-O that the value suggests. For some values, such as 190, it is unclear what the performance is, so it is categorized as O(?) which is some other complexity class. In general, values near 1 have a O(1), values in the 100s have O(?), and values in the 10,000s have O(n). For all schemes, when the keys are random the performance looks like O(1), which is desired. But, as the build gets worse, probing sequences like linear perform poorly and tend towards O(n). In general, it seems that double hashing has the best performance overall.
+
+
+Successful
+		random			sequential		folded			worst
+Quadratic	2	O(1)		1	O(1)		119	O(?)		11652	O(n)
+Double		2	O(1)		1	O(1)		2	O(1)		16	O(1)
+Linear		4	O(1)		1	O(1)		13928	O(n)		27852	O(n)
+
+
+Unsuccessful
+		random			sequential		folded			worst
+Quadratic	8	O(1)		190	O(?)		190	O(?)		8	O(1)
+Double		7	O(1)		18	O(1)		17	O(1)		12	O(1)
+Linear		23	O(1)		23669	O(n)		23728	O(n)		23724	O(n)
+
+
+
+(3) When the table size is large and the number of trials is large, performance will be poor. This is shown in the equilibrium driver results below for trials 50,000 and 100,000. Before rehashing, it can be seen that the 50,000 trial test takes 107ms, while the 100,000 trial test takes 670ms. This is because many of the table keys are marked as deleted, which will hurt performance. In the first test, the percent of deleted location is 81%, which is better than 96% in the second test. This can be solved by rehashing every now and then. After rehashing, the time for the first test goes back down to 26ms and 44 for the second test. 
+
+./lab7 -e -a 0.85 -h linear -m 65537 -t 50000
+Table size (65537), load factor (0.85)
+Open addressing with linear probe sequence
+Seed: 1543343734
+
+----- Equilibrium test driver -----
+  Trials: 50000
+  Build table with 55706 random keys
+during random build generated duplicate key (981012413) on trial (34276)
+this should be unlikely: if see more than a few you have a problem
+    The average number of probes for a successful search = 3.84966
+  Keys added (25138), removed (24860) new size should be (55984) and is (55984)
+  After exercise, time=31.542 
+  successful searches during exercise=5.93026, trials=24862
+  unsuccessful searches during exercise=70.7837, trials=25138
+  After retrieve experiment, time=107.112
+  New load factor = 0.854235
+  Percent empty locations marked deleted = 81.4613
+   Measured avg probes for successful search=7.58331, trials=55984
+   Measured avg probes for unsuccessful search=134.591, trials=49995
+    Do deletions increase avg number of probes?
+--- Linear probe sequence performance formulas ---
+    Expected probes for successful search 3.93018
+    Expected probes for unsuccessful search 24.0323
+  Rehash table
+  After rehash, time=26.383
+   Measured avg probes for successful search=4.02017, trials=55984
+   Measured avg probes for unsuccessful search=25.3077, trials=49997
+----- End of equilibrium test -----
+
+
+./lab7 -e -a 0.85 -h linear -m 65537 -t 100000
+Table size (65537), load factor (0.85)
+Open addressing with linear probe sequence
+Seed: 1543343734
+
+----- Equilibrium test driver -----
+  Trials: 100000
+  Build table with 55706 random keys
+during random build generated duplicate key (981012413) on trial (34276)
+this should be unlikely: if see more than a few you have a problem
+    The average number of probes for a successful search = 3.84966
+  Keys added (50020), removed (49977) new size should be (55749) and is (55749)
+  After exercise, time=177.875 
+  successful searches during exercise=7.34954, trials=49980
+  unsuccessful searches during exercise=160.868, trials=50020
+  After retrieve experiment, time=670.553
+  New load factor = 0.850649
+  Percent empty locations marked deleted = 96.0155
+   Measured avg probes for successful search=9.65113, trials=55749
+   Measured avg probes for unsuccessful search=458.193, trials=99996
+    Do deletions increase avg number of probes?
+--- Linear probe sequence performance formulas ---
+    Expected probes for successful search 3.84782
+    Expected probes for unsuccessful search 22.9158
+  Rehash table
+  After rehash, time=44.137
+   Measured avg probes for successful search=3.98502, trials=55749
+   Measured avg probes for unsuccessful search=24.6924, trials=99992
+----- End of equilibrium test -----
+
+
+
+
+
+
+
+
+
+
+
+
+

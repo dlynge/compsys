@@ -1,0 +1,560 @@
+Welcome to lab2. Possible commands:
+CREATE x; ADDSU; DELSU x
+LISTCH x; CLEARCH x; CHANGECH old new; ASSIGNSU x
+PRINTASSIGNED; PRINTWAITING
+STATS; QUIT
+# Seed: 4321
+# TEST 1: create list size 34 and fill then empty
+# 
+Assignment list size limit: 34
+New assignment list
+New waiting queue
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 204
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 104
+Moved waiting SU 204 to channel: 4
+Moved waiting SU 104 to channel: 4
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 803
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 403
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 603
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 103
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 303
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 703
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 203
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 503
+Moved waiting SU 803 to channel: 5
+Moved waiting SU 403 to channel: 5
+Moved waiting SU 603 to channel: 5
+Moved waiting SU 103 to channel: 5
+Moved waiting SU 303 to channel: 5
+Moved waiting SU 703 to channel: 5
+Moved waiting SU 203 to channel: 5
+Moved waiting SU 503 to channel: 5
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 602
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 402
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 202
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 302
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 102
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 802
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 502
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 702
+Moved waiting SU 602 to channel: 2
+Moved waiting SU 402 to channel: 2
+Moved waiting SU 202 to channel: 2
+Moved waiting SU 302 to channel: 2
+Moved waiting SU 102 to channel: 2
+Moved waiting SU 802 to channel: 2
+Moved waiting SU 502 to channel: 2
+Moved waiting SU 702 to channel: 2
+# TEST 2: attempt assign with empty waiting queueu
+# 
+No secondary users are waiting
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1301
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 801
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 101
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 701
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 501
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1101
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1401
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 601
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1501
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 201
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 401
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 301
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1601
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 901
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1001
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1201
+Moved waiting SU 1301 to channel: 1
+Moved waiting SU 801 to channel: 1
+Moved waiting SU 101 to channel: 1
+Moved waiting SU 701 to channel: 1
+Moved waiting SU 501 to channel: 1
+Moved waiting SU 1101 to channel: 1
+Moved waiting SU 1401 to channel: 1
+Moved waiting SU 601 to channel: 1
+Moved waiting SU 1501 to channel: 1
+Moved waiting SU 201 to channel: 1
+Moved waiting SU 401 to channel: 1
+Moved waiting SU 301 to channel: 1
+Moved waiting SU 1601 to channel: 1
+Moved waiting SU 901 to channel: 1
+Moved waiting SU 1001 to channel: 1
+Moved waiting SU 1201 to channel: 1
+# TEST 3: attempt assign with full assignment list
+# 
+No secondary users are waiting
+# TEST 4: add on to waiting list and attempt assign with full assignment list
+# 
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 108
+User(s) waiting but the assigned list is full 34
+List records:  34, Max list size: 34  Queue records: 1
+# TEST 5: clear 8 users on channel 2
+# 
+Removed 8 from channel 2
+List records:  26, Max list size: 34  Queue records: 9
+# TEST 6: remove 16 users assigned on channel 1
+# 
+Removed: 1001 from assigned list
+ID: 1001, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 32
+Removed: 201 from assigned list
+ID: 201, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 27
+Removed: 101 from assigned list
+ID: 101, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 20
+Removed: 401 from assigned list
+ID: 401, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 28
+Removed: 1501 from assigned list
+ID: 1501, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 26
+Removed: 1101 from assigned list
+ID: 1101, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 23
+Removed: 1201 from assigned list
+ID: 1201, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 33
+Removed: 801 from assigned list
+ID: 801, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 19
+Removed: 601 from assigned list
+ID: 601, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 25
+Removed: 901 from assigned list
+ID: 901, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 31
+Removed: 1601 from assigned list
+ID: 1601, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 30
+Removed: 701 from assigned list
+ID: 701, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 21
+Removed: 1301 from assigned list
+ID: 1301, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 18
+Removed: 501 from assigned list
+ID: 501, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 22
+Removed: 1401 from assigned list
+ID: 1401, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 24
+Removed: 301 from assigned list
+ID: 301, C: 1, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 29
+List records:  10, Max list size: 34  Queue records: 9
+# TEST 7: clear 8 users on channel 5
+# 
+Removed 8 from channel 5
+# TEST 7b: clear but no users on channel 3
+# 
+Did not find any users on channel 3
+List records:  2, Max list size: 34  Queue records: 17
+Removed: 204 from assigned list
+ID: 204, C: 4, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 0
+Removed: 104 from assigned list
+ID: 104, C: 4, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 1
+List records:  0, Max list size: 34  Queue records: 17
+# TEST 8: create list size 100 and fill then empty
+# 
+Assignment list size limit: 100
+Replacing existing assignment list
+Replacing existing waiting queue
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 801
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 501
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2301
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1501
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1701
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 101
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1601
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1001
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2101
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1901
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 701
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2201
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1301
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 601
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1201
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1801
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 901
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 301
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1401
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2501
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2001
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2401
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1101
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 201
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 401
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 402
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 202
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 302
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 502
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 102
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1503
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 903
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1003
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 503
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1303
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2503
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2303
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2003
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1903
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 103
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1703
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 803
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2403
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 603
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2203
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 203
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1803
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1203
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1403
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 303
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1103
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 703
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2103
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 403
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1603
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2004
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 604
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2904
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1904
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 804
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1004
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2204
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2604
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2404
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 104
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1804
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 904
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1704
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 204
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1304
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2804
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2504
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 704
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1104
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 504
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 404
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2104
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1404
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1604
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 304
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1204
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 3004
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2704
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2304
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1504
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 205
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 405
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1505
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 505
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 805
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 705
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 105
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1405
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 305
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 905
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1005
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 605
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1305
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1105
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 1205
+Moved waiting SU 801 to channel: 1
+Moved waiting SU 501 to channel: 1
+Moved waiting SU 2301 to channel: 1
+Moved waiting SU 1501 to channel: 1
+Moved waiting SU 1701 to channel: 1
+Moved waiting SU 101 to channel: 1
+Moved waiting SU 1601 to channel: 1
+Moved waiting SU 1001 to channel: 1
+Moved waiting SU 2101 to channel: 1
+Moved waiting SU 1901 to channel: 1
+Moved waiting SU 701 to channel: 1
+Moved waiting SU 2201 to channel: 1
+Moved waiting SU 1301 to channel: 1
+Moved waiting SU 601 to channel: 1
+Moved waiting SU 1201 to channel: 1
+Moved waiting SU 1801 to channel: 1
+Moved waiting SU 901 to channel: 1
+Moved waiting SU 301 to channel: 1
+Moved waiting SU 1401 to channel: 1
+Moved waiting SU 2501 to channel: 1
+Moved waiting SU 2001 to channel: 1
+Moved waiting SU 2401 to channel: 1
+Moved waiting SU 1101 to channel: 1
+Moved waiting SU 201 to channel: 1
+Moved waiting SU 401 to channel: 1
+Moved waiting SU 402 to channel: 2
+Moved waiting SU 202 to channel: 2
+Moved waiting SU 302 to channel: 2
+Moved waiting SU 502 to channel: 2
+Moved waiting SU 102 to channel: 2
+Moved waiting SU 1503 to channel: 3
+Moved waiting SU 903 to channel: 3
+Moved waiting SU 1003 to channel: 3
+Moved waiting SU 503 to channel: 3
+Moved waiting SU 1303 to channel: 3
+Moved waiting SU 2503 to channel: 3
+Moved waiting SU 2303 to channel: 3
+Moved waiting SU 2003 to channel: 3
+Moved waiting SU 1903 to channel: 3
+Moved waiting SU 103 to channel: 3
+Moved waiting SU 1703 to channel: 3
+Moved waiting SU 803 to channel: 3
+Moved waiting SU 2403 to channel: 3
+Moved waiting SU 603 to channel: 3
+Moved waiting SU 2203 to channel: 3
+Moved waiting SU 203 to channel: 3
+Moved waiting SU 1803 to channel: 3
+Moved waiting SU 1203 to channel: 3
+Moved waiting SU 1403 to channel: 3
+Moved waiting SU 303 to channel: 3
+Moved waiting SU 1103 to channel: 3
+Moved waiting SU 703 to channel: 3
+Moved waiting SU 2103 to channel: 3
+Moved waiting SU 403 to channel: 3
+Moved waiting SU 1603 to channel: 3
+Moved waiting SU 2004 to channel: 4
+Moved waiting SU 604 to channel: 4
+Moved waiting SU 2904 to channel: 4
+Moved waiting SU 1904 to channel: 4
+Moved waiting SU 804 to channel: 4
+Moved waiting SU 1004 to channel: 4
+Moved waiting SU 2204 to channel: 4
+Moved waiting SU 2604 to channel: 4
+Moved waiting SU 2404 to channel: 4
+Moved waiting SU 104 to channel: 4
+Moved waiting SU 1804 to channel: 4
+Moved waiting SU 904 to channel: 4
+Moved waiting SU 1704 to channel: 4
+Moved waiting SU 204 to channel: 4
+Moved waiting SU 1304 to channel: 4
+Moved waiting SU 2804 to channel: 4
+Moved waiting SU 2504 to channel: 4
+Moved waiting SU 704 to channel: 4
+Moved waiting SU 1104 to channel: 4
+Moved waiting SU 504 to channel: 4
+Moved waiting SU 404 to channel: 4
+Moved waiting SU 2104 to channel: 4
+Moved waiting SU 1404 to channel: 4
+Moved waiting SU 1604 to channel: 4
+Moved waiting SU 304 to channel: 4
+Moved waiting SU 1204 to channel: 4
+Moved waiting SU 3004 to channel: 4
+Moved waiting SU 2704 to channel: 4
+Moved waiting SU 2304 to channel: 4
+Moved waiting SU 1504 to channel: 4
+# TEST 9: 15 users on waiting list
+# 
+List records:  85, Max list size: 100  Queue records: 15
+# TEST 10: change 30 users to channel 7
+# 
+Moved 30 users from channel 4 to 7
+List records:  85, Max list size: 100  Queue records: 15
+Removed 30 from channel 7
+# TEST 11: moved 30 users on channel 7 to waiting
+# 
+List records:  55, Max list size: 100  Queue records: 45
+Removed: 402 from assigned list
+ID: 402, C: 2, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 60
+Removed: 302 from assigned list
+ID: 302, C: 2, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 62
+Removed: 502 from assigned list
+ID: 502, C: 2, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 63
+Removed: 202 from assigned list
+ID: 202, C: 2, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 61
+Removed: 102 from assigned list
+ID: 102, C: 2, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 64
+List records:  50, Max list size: 100  Queue records: 45
+Removed 25 from channel 1
+List records:  25, Max list size: 100  Queue records: 70
+Did not find any users on channel 5
+List records:  25, Max list size: 100  Queue records: 70
+Removed 25 from channel 3
+List records:  0, Max list size: 100  Queue records: 95
+# TEST 12: moved all users to waiting
+# 
+Removed: 1204 from waiting queue
+ID: 1204, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 115
+Removed: 1704 from waiting queue
+ID: 1704, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 102
+Removed: 704 from waiting queue
+ID: 704, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 107
+Removed: 404 from waiting queue
+ID: 404, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 110
+Removed: 1004 from waiting queue
+ID: 1004, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 95
+Removed: 1404 from waiting queue
+ID: 1404, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 112
+Removed: 104 from waiting queue
+ID: 104, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 99
+Removed: 604 from waiting queue
+ID: 604, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 91
+Removed: 1804 from waiting queue
+ID: 1804, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 100
+Removed: 2404 from waiting queue
+ID: 2404, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 98
+Removed: 804 from waiting queue
+ID: 804, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 94
+Removed: 2104 from waiting queue
+ID: 2104, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 111
+Removed: 2304 from waiting queue
+ID: 2304, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 118
+Removed: 1304 from waiting queue
+ID: 1304, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 104
+Removed: 1504 from waiting queue
+ID: 1504, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 119
+Removed: 1604 from waiting queue
+ID: 1604, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 113
+Removed: 904 from waiting queue
+ID: 904, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 101
+Removed: 204 from waiting queue
+ID: 204, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 103
+Removed: 1104 from waiting queue
+ID: 1104, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 108
+Removed: 2804 from waiting queue
+ID: 2804, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 105
+Removed: 2904 from waiting queue
+ID: 2904, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 92
+Removed: 504 from waiting queue
+ID: 504, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 109
+Removed: 2704 from waiting queue
+ID: 2704, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 117
+Removed: 2004 from waiting queue
+ID: 2004, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 90
+Removed: 304 from waiting queue
+ID: 304, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 114
+Removed: 1904 from waiting queue
+ID: 1904, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 93
+Removed: 2504 from waiting queue
+ID: 2504, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 106
+Removed: 2604 from waiting queue
+ID: 2604, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 97
+Removed: 2204 from waiting queue
+ID: 2204, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 96
+Removed: 3004 from waiting queue
+ID: 3004, C: 7, MIP: 1, AID: 2, Auth: T, Pri: NSA, B: 2.4, R: 1.1 Time: 116
+# TEST 13: removed 30 users
+# 
+List records:  0, Max list size: 100  Queue records: 65
+Goodbye

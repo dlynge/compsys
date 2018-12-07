@@ -1,0 +1,36 @@
+Seed: 1765640879
+First-fit search policy without coalescing
+
+----- Begin unit driver 3 -----
+There are 4096 bytes per page, and the size of chunk_t is 16 bytes
+Allocated 3 memory blocks, each around a page in size
+p=0x18a4010, size=255, end=0x18a5000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x18a4010 <-- dummy
+Free list above should show 1 empty item
+
+Free'd memory blocks 1 and 3
+p=0x18a4010, size=255, end=0x18a5000, next=0x18a3000 
+p=0x18a3000, size=257, end=0x18a4010, next=0x18a1000 
+p=0x18a1000, size=256, end=0x18a2000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x18a4010 <-- dummy
+Free list above should show a gap
+
+Free'd last block 2
+p=0x18a4010, size=255, end=0x18a5000, next=0x18a2000 
+p=0x18a2000, size=256, end=0x18a3000, next=0x18a3000 
+p=0x18a3000, size=257, end=0x18a4010, next=0x18a1000 
+p=0x18a1000, size=256, end=0x18a2000, next=0x6060d0 
+p=0x6060d0, size=0, end=0x6060d0, next=0x18a4010 <-- dummy
+Free list above should be a page in size
+
+Total items in free list -- 4
+Minimum size (bytes) in free list -- 4080 B
+Maximum size (bytes) in free list -- 4112 B
+Average size (bytes) in free list -- 4096 B
+Total memory (bytes) in free list -- 16384 B
+Number of calls to sbrk -- 3
+Number of pages requested -- 4
+
+all memory is in the heap -- no leaks are possible
+
+----- End unit test driver 3 -----

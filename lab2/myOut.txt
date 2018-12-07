@@ -1,0 +1,119 @@
+Welcome to lab2. Possible commands:
+CREATE x; ADDSU; DELSU x
+LISTCH x; CLEARCH x; CHANGECH old new; ASSIGNSU x
+PRINTASSIGNED; PRINTWAITING
+STATS; QUIT
+# Test Cases
+# 
+# David Lynge
+# ECE 2230 Fall 2018
+# MP2
+# 
+# This file serves as a list of test cases and input for MP2. It is designed
+# to test what happens when you call functions normally or in unexpected ways
+# 
+# ===== Section 0: Test Functions w/ uninitialized list =====
+# 
+# List Channel
+# 
+# Delete User
+# 
+# Clear Channel
+# 
+# Change Channel
+# 
+# Get Stats
+# 
+# Print
+# 
+# Section 0 should not result in any changes
+# 
+# ===== Section 1: Test Normal Use =====
+# 
+# Create List
+Assignment list size limit: 5
+New assignment list
+New waiting queue
+# 
+# Add 6 Users
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 5
+# 
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 2
+# 
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 6
+# 
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 12
+# 
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 20
+# 
+# Overwrite 12
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Updated waiting SU: 12
+Assigned List empty
+
+Waiting Queue has 5 records
+1: ID: 5, C: 1, MIP: 100, AID: 200, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+2: ID: 2, C: 3, MIP: 100, AID: 200, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+3: ID: 6, C: 2, MIP: 100, AID: 200, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+4: ID: 12, C: 1, MIP: 500, AID: 4000, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+5: ID: 20, C: 4, MIP: 100, AID: 200, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+
+# 
+Moved waiting SU 5 to channel: 6
+Moved waiting SU 2 to channel: 9
+# 
+# Change Channel 3 to 5
+Did not find any users on channel 3
+# 
+# Remove Channel 5
+Did not find any users on channel 5
+# 
+# Delete User w/ ID 6
+Removed: 6 from waiting queue
+ID: 6, C: 2, MIP: 100, AID: 200, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+# 
+# List Channel 2
+Assignment list has 2 records.  Looking for SUs on ch 2
+# 
+# Get Stats
+List records:  2, Max list size: 5  Queue records: 2
+# 
+# Print Lists
+Assigned List has 2 records
+1: ID: 2, C: 9, MIP: 100, AID: 200, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+2: ID: 5, C: 6, MIP: 100, AID: 200, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+
+Waiting Queue has 2 records
+1: ID: 12, C: 1, MIP: 500, AID: 4000, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+2: ID: 20, C: 4, MIP: 100, AID: 200, Auth: T, Pri: standard, B: 2.4, R: 43 Time: 8
+
+# 
+# Section 1 should not have any errors and should operate as expected
+# 
+# ===== Section 2: Bad Values =====
+# 
+# Create w/ Negative Value
+Cannot create list: invalid size -12
+# 
+# Delete User w/ Negative Value
+Did not remove: -3
+# 
+# Clear List w/ Negative Channel 
+Invalid channel number -2 for CLEARCH
+# 
+# List Channel w/ Negative Value
+Invalid channel number -5 for LISTCH
+# 
+# Change Channel w/ Negative Channels
+Invalid old 4 or new -1 channel for CHANGECH
+Invalid old -4 or new 1 channel for CHANGECH
+Invalid old -4 or new -1 channel for CHANGECH
+# 
+# Section 2 should return errors
+# 
+Goodbye

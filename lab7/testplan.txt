@@ -1,0 +1,183 @@
+testplan.txt
+Lab7: Hash Tables 
+David Lynge
+dlynge
+ECE 2230, Fall 2018
+
+
+The first unit test was designed to see how the program handled normal, expected operations. It added items to a new table, retreived them, and removed them. The second unit test shows how the program handles bad probe decrement and table size values. It will try to insert and delete as long as it can, but if the program gets caught in an infinite loop (which it will), it will catch itself and exit. Finally, the third driver is the deletion driver. It operates as described in the mp7 pdf and performed as expected. 
+
+All of the unit tests ran smooth and no memory leaks were found for any of them. The valgrind output is shown for the deletion driver below.
+
+Further below the unit drivers is the output for testing the retreive driver with bad probing/size combinations. We see that double hashing does not work well with table sizes that aren't prime, and quadratic hashing isn't garunteed to work with table sizes that aren't powers of two. This is because the probing sequence will get caught in an infinite loop if the table has non-empty keys at the right positions.
+
+In addition to the tests above, more tests were ran with testscript.sh. This script tests all of the drivers for the program and an example output has been redirected into the file testoutput.txt. This file ran as expected.
+
+
+
+* Deletion Driver Output *
+
+valgrind ./lab7 -u 3
+==9505== Memcheck, a memory error detector
+==9505== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==9505== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==9505== Command: ./lab7 -u 3
+==9505== 
+Table size (11), load factor (0.9)
+Open addressing with linear probe sequence
+Seed: 1543343734
+----- Begin Deletion Driver -----
+
+-- (a) New Table --
+
+Insert keys 5, 12, 11, 19
+Table key positions
+[  0] EMPTY
+[  1] EMPTY
+[  2]    19
+[  3]    11
+[  4]    12
+[  5]     5
+[  6] EMPTY
+
+Remove keys 5, 8, 12
+Table key positions
+[  0] EMPTY
+[  1] EMPTY
+[  2]    19
+[  3]    11
+[  4] DELET
+[  5] DELET
+[  6] EMPTY
+
+Insert keys 19, 26
+Table key positions
+[  0] EMPTY
+[  1] EMPTY
+[  2]    19
+[  3]    11
+[  4] DELET
+[  5]    26
+[  6] EMPTY
+
+-- (b) New Table --
+
+Insert 7, 8, 9, 10, 11, 12
+Table key positions
+[  0]     7
+[  1]     8
+[  2]     9
+[  3]    10
+[  4]    11
+[  5]    12
+[  6] EMPTY
+
+Remove 7, 8, 9, 10
+Table key positions
+[  0] DELET
+[  1] DELET
+[  2] DELET
+[  3] DELET
+[  4]    11
+[  5]    12
+[  6] EMPTY
+
+Insert 13, 14
+Table key positions
+[  0]    14
+[  1] DELET
+[  2] DELET
+[  3] DELET
+[  4]    11
+[  5]    12
+[  6]    13
+
+Retrieve 16
+16 not found.
+==9505== 
+==9505== HEAP SUMMARY:
+==9505==     in use at exit: 0 bytes in 0 blocks
+==9505==   total heap usage: 18 allocs, 18 frees, 328 bytes allocated
+==9505== 
+==9505== All heap blocks were freed -- no leaks are possible
+==9505== 
+==9505== For counts of detected and suppressed errors, rerun with: -v
+==9505== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+* Unit Test Driver Outputs *
+
+./lab7 -u 1 -v
+Table size (11), load factor (0.9)
+Open addressing with linear probe sequence
+Seed: 1543343734
+----- Begin unit driver 1 -----
+
+Inserting 3 keys
+Table key positions
+[  0]   220
+[  1] EMPTY
+[  2] EMPTY
+[  3] EMPTY
+[  4] EMPTY
+[  5] EMPTY
+[  6] EMPTY
+[  7] EMPTY
+[  8] EMPTY
+[  9]   440
+[ 10]   330
+
+Passed retreive test
+
+Removing 3 keys
+Table key positions
+[  0] DELET
+[  1] EMPTY
+[  2] EMPTY
+[  3] EMPTY
+[  4] EMPTY
+[  5] EMPTY
+[  6] EMPTY
+[  7] EMPTY
+[  8] EMPTY
+[  9] DELET
+[ 10] DELET
+
+./lab7 -u 2 -v
+Table size (11), load factor (0.9)
+Open addressing with linear probe sequence
+Seed: 1543343734
+----- Begin unit driver 2 -----
+Inserting 4 keys
+Performing final insertion. This should cause a crash!
+Table key positions
+[  0]    12
+[  1] EMPTY
+[  2]    84
+[  3] EMPTY
+[  4]    48
+[  5] EMPTY
+Fatal Error: Probe sequence does not work with a table size of 6
+
+* Retrieve driver catastrophic error output *
+
+./lab7 -r -h double -m 8
+Table size (8), load factor (0.9)
+Open addressing with double hashing
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 7 random keys
+Fatal Error: Probe sequence does not work with a table size of 8
+
+./lab7 -r -h quad -m 7
+Table size (7), load factor (0.9)
+Open addressing with quadratic probe sequence
+Seed: 1543343734
+
+----- Retrieve driver -----
+  Trials: 50000
+  Build table with 6 random keys
+    The average number of probes for a successful search = 1.16667
+Fatal Error: Probe sequence does not work with a table size of 7

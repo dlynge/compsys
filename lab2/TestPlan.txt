@@ -1,0 +1,160 @@
+Test Cases
+
+David Lynge
+ECE 2230 Fall 2018
+MP2
+
+This file serves as a list of test cases and input for MP2. It is designed
+to test what happens when you call functions normally or in unexpected ways
+
+===== Section 0: Test Functions w/ uninitialized list =====
+
+List Channel
+LISTCH 4
+
+Delete User
+DELSU 3
+
+Clear Channel
+CLEARCH 4
+
+Change Channel
+CHANGECH 6 9
+
+Get Stats
+STATS
+
+Print
+PRINTASSIGNED
+PRINTWAITING
+
+Section 0 should not result in any changes
+
+===== Section 1: Test Normal Use =====
+
+Create List
+CREATE 5
+
+Add 6 Users
+ADDSU
+5
+100
+200
+T
+standard
+2.4
+1
+43
+8
+
+ADDSU
+2
+100
+200
+T
+standard
+2.4
+3
+43
+8
+
+ADDSU
+6
+100
+200
+T
+standard
+2.4
+2
+43
+8
+
+ADDSU
+12
+100
+200
+T
+standard
+2.4
+1
+43
+8
+
+ADDSU
+20
+100
+200
+T
+standard
+2.4
+4
+43
+8
+
+Overwrite 12
+ADDSU
+12
+500
+4000
+T
+standard
+2.4
+1
+43
+8
+PRINTASSIGNED
+PRINTWAITING
+
+ASSIGNSU 6
+ASSIGNSU 9
+
+Change Channel 3 to 5
+CHANGECH 3 5
+
+Remove Channel 5
+CLEARCH 5
+
+Delete User w/ ID 6
+DELSU 6
+
+List Channel 2
+LISTCH 2
+
+Get Stats
+STATS
+
+Print Lists
+PRINTASSIGNED
+PRINTWAITING
+
+Section 1 should not have any errors and should operate as expected
+
+===== Section 2: Bad Values =====
+
+Create w/ Negative Value
+CREATE -12
+
+Delete User w/ Negative Value
+DELSU -3
+
+Clear List w/ Negative Channel 
+CLEARCH -2
+
+List Channel w/ Negative Value
+LISTCH -5
+
+Change Channel w/ Negative Channels
+CHANGECH 4 -1
+CHANGECH -4 1
+CHANGECH -4 -1
+
+Section 2 should return errors
+
+QUIT
+
+
+The code passes all testing and creates the file shown in testoutput.txt
+
+
+
+

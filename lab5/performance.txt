@@ -1,0 +1,161 @@
+performance.txt
+Lab5: Binary Search Trees
+ECE 2230, Fall 2018
+David Lynge
+dlynge
+
+
+Below is the output for the equilibrium driver which was testing Random, Poor, and Optimal trees, each with 16, 10, and 20 levels. We expect the optimal tree to perform the best and the poor tree to perform the worst. As we can see, the random tree was only 42ms for the 16-level exercise, while the optimal was also 42ms. This means that the random and optimal trees are actually very similar is compulation time. 
+
+Also, we can see that for random trees, the time of the exercise took log(2^20)/log(2^10)=2 times longer for the 20-level case vs the 10-level case. Experimentally, the 10-level case took 23ms, while the 20-level case took 89ms. While these values aren't exactly a multiple of 2 from each other, it is easy to see that the complexity class is O(log(n)) because an exponential increase in nodes results in a linear increase in computation time.
+
+For a worst case tree, we would expect a complexity of O(n) for accessing/removing/inserting, since the tree would essentially be a linked list. However, the time it takes to perform 10-level vs a 20-level tree does not imply that the processing time is proportional to the number of items. The increase from 18ms to 82ms seems more like a logarithmic increase, because a linear increase would have gone up much higher. This may be due to the fact that the poor-case tree is not exactly the worst-case.
+
+Overall, using a BST to handle data is very usefull when handling data, since its average complexity class for performing routine operations is O(log(n)). We are able to handle millions of data points without the need to iterate through every node, which is why it's better than a linked-list implementation.
+
+
+----- ----- RANDOM ----- -----
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 16
+  Initial random tree size=65535
+  Expect successful search for initial tree=40.4003
+  Expect unsuccessful search for initial tree=43.3996
+  After exercise, time=42.388, new tree size=65632
+  successful searches during exercise=40.2785, trials=50010
+  unsuccessful searches during exercise=42.7231, trials=49990
+  Validating tree...passed
+  After access experiment, time=26.96, tree size=65632
+  Expect successful search=40.152, measured=40.1798, trials=49797
+  Expect unsuccessful search=43.1513, measured=42.401, trials=50203
+----- End of equilibrium test -----
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 10
+  Initial random tree size=1023
+  Expect successful search for initial tree=24.7654
+  Expect unsuccessful search for initial tree=27.7383
+  After exercise, time=51.361, new tree size=1020
+  successful searches during exercise=23.4122, trials=50180
+  unsuccessful searches during exercise=25.7253, trials=49820
+  Validating tree...passed
+  After access experiment, time=27.151, tree size=1020
+  Expect successful search=22.9314, measured=22.9705, trials=49801
+  Expect unsuccessful search=25.906, measured=25.0514, trials=50199
+----- End of equilibrium test -----
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 20
+  Initial random tree size=1048575
+  Expect successful search for initial tree=51.7207
+  Expect unsuccessful search for initial tree=54.7207
+  After exercise, time=88.81, new tree size=1048638
+  successful searches during exercise=51.7232, trials=50056
+  unsuccessful searches during exercise=54.6385, trials=49944
+  Validating tree...passed
+  After access experiment, time=81.526, tree size=1048638
+  Expect successful search=51.7094, measured=51.6772, trials=49988
+  Expect unsuccessful search=54.7094, measured=54.5007, trials=50012
+----- End of equilibrium test -----
+
+
+
+----- ----- OPTIMAL ----- -----
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 16
+  Initial random tree size=65535
+  Expect successful search for initial tree=39.6022
+  Expect unsuccessful search for initial tree=42.6015
+  After exercise, time=42.505, new tree size=65743
+  successful searches during exercise=39.4264, trials=49977
+  unsuccessful searches during exercise=41.8577, trials=50023
+  Validating tree...passed
+  After access experiment, time=32.678, tree size=65743
+  Expect successful search=39.2804, measured=39.3305, trials=50314
+  Expect unsuccessful search=42.2798, measured=41.4977, trials=49686
+----- End of equilibrium test -----
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 10
+  Initial random tree size=1023
+  Expect successful search for initial tree=23.0254
+  Expect unsuccessful search for initial tree=26
+  After exercise, time=17.495, new tree size=1039
+  successful searches during exercise=21.0915, trials=50215
+  unsuccessful searches during exercise=23.4225, trials=49785
+  Validating tree...passed
+  After access experiment, time=8.944, tree size=1039
+  Expect successful search=20.6824, measured=20.692, trials=50519
+  Expect unsuccessful search=23.6596, measured=23.2687, trials=49481
+----- End of equilibrium test -----
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 20
+  Initial random tree size=1048575
+  Expect successful search for initial tree=50.5209
+  Expect unsuccessful search for initial tree=53.5209
+  After exercise, time=93.928, new tree size=1048687
+  successful searches during exercise=50.5216, trials=50078
+  unsuccessful searches during exercise=53.4291, trials=49922
+  Validating tree...passed
+  After access experiment, time=86.829, tree size=1048687
+  Expect successful search=50.5149, measured=50.545, trials=49876
+  Expect unsuccessful search=53.5148, measured=53.3807, trials=50124
+----- End of equilibrium test -----
+
+
+
+----- ----- POOR ----- -----
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 16
+  Initial random tree size=65535
+  Expect successful search for initial tree=39.3346
+  Expect unsuccessful search for initial tree=42.334
+  After exercise, time=28.46, new tree size=65741
+  successful searches during exercise=39.1835, trials=49968
+  unsuccessful searches during exercise=41.5857, trials=50032
+  Validating tree...passed
+  After access experiment, time=24.815, tree size=65741
+  Expect successful search=39.0111, measured=38.9659, trials=50322
+  Expect unsuccessful search=42.0105, measured=41.267, trials=49678
+----- End of equilibrium test -----
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 10
+  Initial random tree size=1023
+  Expect successful search for initial tree=23.3636
+  Expect unsuccessful search for initial tree=26.3379
+  After exercise, time=37.547, new tree size=1038
+  successful searches during exercise=22.6454, trials=50219
+  unsuccessful searches during exercise=25.0187, trials=49781
+  Validating tree...passed
+  After access experiment, time=18.127, tree size=1038
+  Expect successful search=22.9306, measured=22.9418, trials=50464
+  Expect unsuccessful search=25.9057, measured=25.0934, trials=49536
+----- End of equilibrium test -----
+
+----- Equilibrium test driver -----
+  Trials in equilibrium: 100000
+  Levels in initial tree: 20
+  Initial random tree size=1048575
+  Expect successful search for initial tree=54.0784
+  Expect unsuccessful search for initial tree=57.0783
+  After exercise, time=89.078, new tree size=1048667
+  successful searches during exercise=54.0416, trials=50090
+  unsuccessful searches during exercise=57.079, trials=49910
+  Validating tree...passed
+  After access experiment, time=82.367, tree size=1048667
+  Expect successful search=54.0684, measured=54.0888, trials=49913
+  Expect unsuccessful search=57.0684, measured=57.1241, trials=50087
+----- End of equilibrium test -----
+

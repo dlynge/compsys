@@ -1,0 +1,135 @@
+Welcome to lab2. Possible commands:
+CREATE x; ADDSU; DELSU x
+LISTCH x; CLEARCH x; CHANGECH old new; ASSIGNSU x
+PRINTASSIGNED; PRINTWAITING
+STATS; QUIT
+# Prof. Harlan Russell
+# ECE 2230, MP2, Fall 2018
+# testintput.txt
+# 
+# A test script to show a few simple tests for the SAS commands.
+# This is an example of a start to a test plan.  These tests are very incomplete.
+# 
+# Assumptions: these tests are designed with a list size of 3.  
+# 
+# TEST 1:  Add three entries to list.  
+# 
+Assignment list size limit: 3
+New assignment list
+New waiting queue
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 111
+Moved waiting SU 111 to channel: 2
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 551
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 100
+Moved waiting SU 551 to channel: 1
+# 
+# To determine if test 1 passes look for three "Inserted new waiting SU" messages
+# 
+# TEST 2: Print the list and verify three entries are sorted 
+# 
+Assigned List has 2 records
+1: ID: 111, C: 2, MIP: 100, AID: 200, Auth: T, Pri: standard, B: 2.4, R: 54.2 Time: 1
+2: ID: 551, C: 1, MIP: 500, AID: 200, Auth: F, Pri: strong, B: 2.4, R: 1.3 Time: 2
+
+Waiting Queue has 1 records
+1: ID: 100, C: 2, MIP: 111, AID: 200, Auth: T, Pri: standard, B: 5, R: 11.1 Time: 3
+
+List records:  2, Max list size: 3  Queue records: 1
+# 
+# To deterine if test 2 passes assigned list should have two users
+# The waiting list should have 1 user
+# Also, stats should show 3 records with an array size of 3
+# 
+# TEST 3:  Update the 111 entry in the list
+# 
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Updated assigned SU: 111
+# 
+# To determine if test 3 passes look for "Updated assigned SU" message
+# 
+# TEST 4: Print the list, verify entry for 111 replaced
+# 
+Assigned List has 2 records
+1: ID: 111, C: 2, MIP: 101, AID: 201, Auth: F, Pri: NSA, B: 2.4, R: 54.4 Time: 4
+2: ID: 551, C: 1, MIP: 500, AID: 200, Auth: F, Pri: strong, B: 2.4, R: 1.3 Time: 2
+
+List records:  2, Max list size: 3  Queue records: 1
+# 
+# To determine if test 4 passes look for 2 records, and 111 record should be 
+# updated with Time as 4.  Stats should still be 3 records, size 3
+# 
+# TEST 5: look for a record in the list and one not in list
+# 
+Assignment list has 2 records.  Looking for SUs on ch 1
+ID: 551, C: 1, MIP: 500, AID: 200, Auth: F, Pri: strong, B: 2.4, R: 1.3 Time: 2
+Assignment list has 2 records.  Looking for SUs on ch 2
+ID: 111, C: 2, MIP: 101, AID: 201, Auth: F, Pri: NSA, B: 2.4, R: 54.4 Time: 4
+Assignment list has 2 records.  Looking for SUs on ch 3
+# 
+# To determine if test 5 passes it should print one record on channel 1 and
+# one records on channel 2.  No records on channel 3
+# 
+# TEST 6:  Attempt to add fourth record. If list size is 3 then add will be rejected 
+# 
+secondary user ID number:IP address:Access point IP address:Authenticated (T/F):Privacy (none|standard|strong|NSA):Band (2.4|5.0):Channel:Data rate:Time received (int):
+Inserted new waiting SU: 222
+Moved waiting SU 100 to channel: 2
+User(s) waiting but the assigned list is full 3
+Assigned List has 3 records
+1: ID: 100, C: 2, MIP: 111, AID: 200, Auth: T, Pri: standard, B: 5, R: 11.1 Time: 3
+2: ID: 111, C: 2, MIP: 101, AID: 201, Auth: F, Pri: NSA, B: 2.4, R: 54.4 Time: 4
+3: ID: 551, C: 1, MIP: 500, AID: 200, Auth: F, Pri: strong, B: 2.4, R: 1.3 Time: 2
+
+Waiting Queue has 1 records
+1: ID: 222, C: 1, MIP: 333, AID: 202, Auth: T, Pri: standard, B: 3.3, R: 10.222 Time: 5
+
+List records:  3, Max list size: 3  Queue records: 1
+# 
+# To check test 6, look for Moved waiting SU to channel and then assigned
+# list is full. Print shows 3 records in assigned list and 1 waiting.
+# 
+# TEST 7: Remove the last element in the list and try to remove an element 
+# not in the list
+# 
+Removed: 551 from assigned list
+ID: 551, C: 1, MIP: 500, AID: 200, Auth: F, Pri: strong, B: 2.4, R: 1.3 Time: 2
+Did not remove: 552
+Assigned List has 2 records
+1: ID: 100, C: 2, MIP: 111, AID: 200, Auth: T, Pri: standard, B: 5, R: 11.1 Time: 3
+2: ID: 111, C: 2, MIP: 101, AID: 201, Auth: F, Pri: NSA, B: 2.4, R: 54.4 Time: 4
+
+Waiting Queue has 1 records
+1: ID: 222, C: 1, MIP: 333, AID: 202, Auth: T, Pri: standard, B: 3.3, R: 10.222 Time: 5
+
+# 
+# To verify test 7, should see removed 551, did not remove 552, and final list
+# should be printed with 2 records.
+# 
+# TEST 8: Test changing channels
+# 
+Moved 2 users from channel 2 to 3
+Assignment list has 2 records.  Looking for SUs on ch 2
+Assignment list has 2 records.  Looking for SUs on ch 3
+ID: 100, C: 3, MIP: 111, AID: 200, Auth: T, Pri: standard, B: 5, R: 11.1 Time: 3
+ID: 111, C: 3, MIP: 101, AID: 201, Auth: F, Pri: NSA, B: 2.4, R: 54.4 Time: 4
+Assigned List has 2 records
+1: ID: 100, C: 3, MIP: 111, AID: 200, Auth: T, Pri: standard, B: 5, R: 11.1 Time: 3
+2: ID: 111, C: 3, MIP: 101, AID: 201, Auth: F, Pri: NSA, B: 2.4, R: 54.4 Time: 4
+
+Removed 2 from channel 3
+Assigned List empty
+
+Waiting Queue has 3 records
+1: ID: 222, C: 1, MIP: 333, AID: 202, Auth: T, Pri: standard, B: 3.3, R: 10.222 Time: 5
+2: ID: 100, C: 3, MIP: 111, AID: 200, Auth: T, Pri: standard, B: 5, R: 11.1 Time: 3
+3: ID: 111, C: 3, MIP: 101, AID: 201, Auth: F, Pri: NSA, B: 2.4, R: 54.4 Time: 4
+
+# 
+# TEST 9: Quit
+# 
+# to verify test 9, run with valgrind and confirm there are no memory leaks
+# 
+Goodbye
